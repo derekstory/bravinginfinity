@@ -43,14 +43,13 @@ onmouseout="this.src='/Style/images/signin.png'
 <div id="menu">
         <ul>
             <li><a href="post.php">New Post</a></li>
-            <li><a href=>Popular</a></li>
-            <li><a href=>Following</a></li>
+            <li><a href="popular.php">Popular</a></li>
+            <li><a href="myposts.php">My Posts</a></li>
             <li><a href="profile.php">My Profile</a>
-            <li><a href=>User Profiles</a></li>
-            <li><a href=>Stats</a></li>
-            <li><a href=>Achievements</a></li>
-            <li><a href=>Concept</a></li>
-            <li><a href=>FAQ</a></li>
+            <li><a href="following.php">Following</a></li>
+            <li><a href="users">Users</a></li>
+            <li><a href="concept.php">Concept</a></li>
+            <li><a href="faq.php">FAQ</a></li>
             <li><a href="http://facebook.com"><img width="20px" src="/Style/images/facebook.png" style="border:0;margin-top:0px;width:20"/></a></li>
             <li><a href="https://twitter.com/bravinginfinity"><img width="20px" src="/Style/images/twitter.png" style="border:0;margin-top:0px;width:20"/></a></li>
                    </ul>

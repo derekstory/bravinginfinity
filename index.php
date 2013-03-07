@@ -1,5 +1,4 @@
 <?php
-include 'connect.php';
 include 'header.php';
 ?>
 
@@ -7,12 +6,11 @@ include 'header.php';
         <table class="width-100 bordered" id="list">
             <thead class="thead-black">
                 <tr class="breakloop">
-                    <th class= "text-centered">ID</th>
-                    <th class= "text-centered">The Loop</th>
-                    <th class= "text-centered">Category</th>
+                    <th class= "text-centered">Goal</th>
                     <th class= "text-centered">Author</th>
+                    <th class= "text-centered">Views</th>
                     <th class= "text-centered">Thoughts</th>
-                    <th class= "text-centered">Breakers</th>
+                    <th class= "text-centered">Encouragers</th>
                     <th class= "text-centered">Date</th>
                 </tr>
             </thread>

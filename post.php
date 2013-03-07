@@ -1,23 +1,22 @@
 <?php
-include 'connect.php';
 include 'header.php';
 ?>
 
 
 <div id="contentpost">
-<form>
-<h1 align="center" style="color:#fff">Start here.</h1>
 
+<form>
+<h1 align="center" style="color:#fff">Start a new goal.</h1>
 <div class="headerarea">
   <h6 align="Left" style="color:#fff; display: inline">Header</h6>
   <h7 align="Left" style="color:#fff">Limited to 55 characters. Be creative.</h7>
-<textarea maxLength="55" id="txt"></textarea>
+     <textarea maxLength="55" id="txt"></textarea>
 </div>
 
 <div class="postarea">
   <h6 align="Left" style="color:#fff;display:inline">Content</h6>
   <h7 align="Left" style="color:#fff">No character limit. Keep it smart. Keep it elegant.</h7>
-  <textarea></textarea>
+      <textarea></textarea>
 </div>
 
 <h6 align="Left" style="color:#fff; display: inline; padding-top:20px">Category</h6>
@@ -54,7 +53,7 @@ include 'header.php';
 </form>
 </div>
 </div>
-</form>
+
 
 </div>
 
