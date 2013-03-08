@@ -2,12 +2,13 @@
 include 'header.php';
 ?>
 
-<sidebar>
-<div id="postresult">
+<div id="profileheader">
     <h1 align="left" style="display:block">dwreck_08</h1>
     <h4 align="left" style="display;block;margin-top:-10px">Rating: 1003</h4>
-    <h5 align="left" style="display;block;margin-top:-12px">Member since: 01/03/2013</h5>
-       <hr style="width:100%;margin-top:30px;margin-bottom:30px"></hr>
+    <h5 align="left" style="display;block;margin-top:-10px">Member since: 01/03/2013</h5>
+</div>
+       <hr style="width:100%;margin-top:30px;margin-bottom:0px"></hr>
+<div id="profileactivity">
     <a href="content.php">
     <h5 align="left" style="display:block;margin-top:40px">Commented as Encourager on "How we can save the World"</h6>
     <h5 align="left" style="display:block;margin-top:-8px">02/28/2013</h6></a>
@@ -17,11 +18,10 @@ include 'header.php';
     <a href="content.php">
     <h5 align="left" style="display:block;margin-top:40px">Commented Received by captain_america29 as Researcher on "Together we can end poverty by the end of the year."</h6>
     <h5 align="left" style="display:block;margin-top:-8px">02/28/2013</h6></a>
-
 </div>
-</sidebar>
 
-<div id="contentreply">
+
+<div id="profilestats">
     <h1 align="left" style="color:#fff">Statistics</h1>
         <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
@@ -41,7 +41,7 @@ include 'header.php';
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Achievements: 90</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Accused of Spam or Abuse: 0</h6>
 </div>
-</div>
+
 
 
 
