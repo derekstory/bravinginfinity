@@ -168,26 +168,7 @@ input {
     text-align: center;
 }
 
-/*---FOOTER---*/
 
-#footer_1 {
-	background: rgba(255,255,255,.8);
-	display: block;
-        text-decoration: none;
-	font: 14px Helvetica, Arial, Sans-Serif;
-	text-align: center;
-	color: #000;
-        box-shadow: inset 0px 3px 5px #111;
-        margin-top: 100px;
-        height: 40px;
-}
-div.ftext {
-       text-align: center;
-       padding-top: 12px;
-}
-.footer, .push {
-        padding-bottom: 200px;
-}
 
 
 /*---Profile---*/
@@ -344,4 +325,25 @@ div.ftext {
         margin-top: -600px;
         margin-left: auto;
         margin-right: 80px;
+}
+
+/*---FOOTER---*/
+
+#footer_1 {
+	background: rgba(255,255,255,.0);
+	display: block;
+        text-decoration: none;
+	font: 14px Helvetica, Arial, Sans-Serif;
+	text-align: center;
+	color: #fff;
+        box-shadow: inset 0px 3px 5px #fff;
+        margin-top: 100px;
+        height: 40px;
+}
+div.ftext {
+       text-align: center;
+       padding-top: 12px;
+}
+.footer, .push {
+        padding-bottom: 500px;
 }

@@ -1,4 +1,5 @@
 <?php
+include 'connect.php';
 include 'header.php';
 ?>
 
@@ -17,7 +18,8 @@ include 'header.php';
 
 <?php
 
-$sql = "SELECT * FROM users, posts LIMIT 0, 20 ";
+$sql = "SELECT * FROM `toc` LIMIT 0, 30 ";
+
 
 $result = mysql_query($sql);
 
@@ -26,18 +28,12 @@ while($row = mysql_fetch_assoc($result))
 echo           '<tbody class="breakloop">
 
                 <tr>
-                    <td class="centered">
-                        <a href="/vdoc/download/00000993">
-                        <a href="/vdoc/edit/00000993">00000993</a>
-                    </td>
-                    <td>' . $row['post_title'] . '</td>
-                    <td class="centered">Politics</td>
-                        <a href="/vdoc/category/edit/"></a>
-                    <td class="centered">' . $row['user_name'] . '</td>
-                    </td>
-                    <td class="centered">24</td>
+                    <td class="centered">' . $row['toc_title'] . '</td>
+                    <td class="centered">' . $row['toc_author'] . '</td>
+                    <td class="centered">Views</td>
+                    <td class="centered">' . $row['toc_cat'] . '</td>
                     <td class="centered">8</td>
-                    <td class="centered">' . $row['post_date'] . '</td>
+                    <td class="centered">' . $row['toc_date'] . '</td>
                </tr>';
 }
 ?>
