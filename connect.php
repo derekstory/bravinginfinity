@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 //connect.php
 $server	    = 'localhost';
 $username	= 'root';
-$password	= 'Stop!b4ubmh';
+$password	= 'Goiu!234';
 $database	= 'test';
 
 if(!mysql_connect($server, $username, $password))
