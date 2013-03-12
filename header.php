@@ -48,6 +48,6 @@
             <li><a href="http://facebook.com"><img width="20px" src="/Style/images/facebook.png" style="border:0;margin-top:0px;width:20"/></a></li>
             <li><a href="https://twitter.com/bravinginfinity"><img width="20px" src="/Style/images/twitter.png" style="border:0;margin-top:0px;width:20"/></a></li>
                    </ul>
-            <h3 align="right" style="margin-top:-40px; margin-right:40px"><a href="signup.php" class="register">Sign-In or Register</a></h3>
+            <h3 align="right" style="width:30%;margin-top:-40px; margin-left:auto;margin-right:40px"><a href="signup.php" class="register">Sign-In or Register</a></h3>
         <br style="clear: left" />
 </div>
