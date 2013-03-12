@@ -64,6 +64,14 @@ body {
     -moz-transition: all 0.7s ease 0s;
     -o-transition: all 0.7s ease 0s;
       }
+.register:link {
+    text-decoration: none;
+}
+
+.register:hover {
+    color: #000;
+    text-decoration: none;
+}
 
 /* =Menu
 -----------------------------------------------------------------------------*/

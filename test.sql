@@ -1,16 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.11.3
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Host: 68.178.139.70
--- Generation Time: Mar 11, 2013 at 01:48 PM
--- Server version: 5.0.96
--- PHP Version: 5.1.6
+-- Host: localhost
+-- Generation Time: Mar 12, 2013 at 04:27 PM
+-- Server version: 5.5.29
+-- PHP Version: 5.3.10-1ubuntu3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `dwreck08`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -19,8 +26,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `post`
 --
 
-CREATE TABLE `post` (
-  `post_id` int(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `post` (
+  `post_id` int(8) NOT NULL AUTO_INCREMENT,
   `post_title` varchar(55) NOT NULL,
   `post_content` text NOT NULL,
   `post_cat` varchar(255) NOT NULL,
@@ -29,20 +36,17 @@ CREATE TABLE `post` (
   `post_supporters` int(8) NOT NULL,
   `post_replytotal` int(8) NOT NULL,
   `post_views` int(12) NOT NULL,
-  `post_date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`post_id`),
-  KEY `post_title` (`post_title`),
-  KEY `post_cat` (`post_cat`),
-  KEY `post_author` (`post_author`),
-  KEY `post_date` (`post_date`),
-  KEY `post_views` (`post_views`),
-  KEY `post_supporters` (`post_supporters`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `post_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`post_id`),
+  KEY `post_author` (`post_author`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `post`
 --
 
+INSERT INTO `post` (`post_id`, `post_title`, `post_content`, `post_cat`, `post_keywords`, `post_author`, `post_supporters`, `post_replytotal`, `post_views`, `post_date`) VALUES
+(6, 'Testing title to be inserted here', 'Lorem ipsum dolor sit amet, eam ad virtute propriae eloquentiam, no decore soleat legimus sit. Hinc feugait volutpat sed an, pri nobis iracundia ad. Ad sit cibo paulo, ius no paulo eleifend, modo oblique singulis pro cu. Prodesset omittantur ex pri, vix at iudico reprimique. Verear iisque similique quo at, vel te nisl delenit habemus. Suas purto mea an, vim ad nominavi appareat voluptaria. Possit vocent convenire pri ne. Duis brute assueverit has ex.\r\n\r\nEx pro sint habemus. Has novum iisque urbanitas in, ne melius civibus duo. Populo deleniti ius an, et legere possim aliquam eos. Id ludus saperet posidonium vix, et eos lorem mazim. Est unum democritum ei, id quod affert vituperata sea, vel et odio invenire consequuntur. Vel ut iusto laboramus, no vim antiopam suscipiantur concludaturque, agam aperiri ex duo. Te case propriae qui, vis an placerat nominati, movet labore et nam.\r\n\r\nAudiam postulant cu est, brute illum legendos nam ei. At mei persius repudiare, quis saepe referrentur ad per. Scripta accusam ei usu. Eam et dicit saepe. Ius quod dicit viris eu, cu iudico philosophia cum, usu option epicuri at.', 'Self', 'testing MySQL', 'dwreck08', 0, 0, 0, '2013-03-12 16:34:47');
 
 -- --------------------------------------------------------
 
@@ -50,8 +54,8 @@ CREATE TABLE `post` (
 -- Table structure for table `profile`
 --
 
-CREATE TABLE `profile` (
-  `profile_id` int(8) NOT NULL auto_increment,
+CREATE TABLE IF NOT EXISTS `profile` (
+  `profile_id` int(8) NOT NULL AUTO_INCREMENT,
   `profile_author` varchar(255) NOT NULL,
   `profile_posted` varchar(255) NOT NULL,
   `profile_commented` varchar(255) NOT NULL,
@@ -59,13 +63,8 @@ CREATE TABLE `profile` (
   `profile_rating` int(8) NOT NULL,
   `profile_replycount` int(8) NOT NULL,
   `profile_date` datetime NOT NULL,
-  PRIMARY KEY  (`profile_id`)
+  PRIMARY KEY (`profile_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `profile`
---
-
 
 -- --------------------------------------------------------
 
@@ -73,48 +72,14 @@ CREATE TABLE `profile` (
 -- Table structure for table `replies`
 --
 
-CREATE TABLE `replies` (
-  `reply_id` int(8) NOT NULL auto_increment,
+CREATE TABLE IF NOT EXISTS `replies` (
+  `reply_id` int(8) NOT NULL AUTO_INCREMENT,
   `reply_content` text NOT NULL,
   `reply_contribution` varchar(255) NOT NULL,
   `reply_rating` int(8) NOT NULL,
   `reply_date` datetime NOT NULL,
-  PRIMARY KEY  (`reply_id`)
+  PRIMARY KEY (`reply_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `replies`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `toc`
---
-
-CREATE TABLE `toc` (
-  `toc_id` int(8) NOT NULL,
-  `toc_views` int(12) NOT NULL,
-  `toc_title` varchar(55) NOT NULL,
-  `toc_cat` varchar(255) NOT NULL,
-  `toc_author` varchar(255) NOT NULL,
-  `toc_replies` int(8) NOT NULL,
-  `toc_supporters` int(8) NOT NULL,
-  `toc_date` datetime NOT NULL,
-  PRIMARY KEY  (`toc_id`),
-  KEY `toc_views` (`toc_views`),
-  KEY `toc_title` (`toc_title`),
-  KEY `toc_cat` (`toc_cat`),
-  KEY `toc_author` (`toc_author`),
-  KEY `toc_supporters` (`toc_supporters`),
-  KEY `toc_date` (`toc_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `toc`
---
-
 
 -- --------------------------------------------------------
 
@@ -122,33 +87,35 @@ CREATE TABLE `toc` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(8) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(30) NOT NULL,
   `user_pass` varchar(255) NOT NULL,
   `user_email` varchar(255) NOT NULL,
   `user_level` int(8) NOT NULL,
-  `user_date` datetime NOT NULL,
-  PRIMARY KEY  (`user_id`),
+  `user_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `users`
 --
 
+INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_level`, `user_date`) VALUES
+(3, 'dwreck08', '111111', 'derek.a.story@gmail.com', 0, '2013-03-12 05:00:00'),
+(27, 'derekstory', '9ff9773e3d33bf4f041bc83d2baabd195caf9ced', 'derek.a.story@gmail.com', 0, '2013-03-12 21:25:38');
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `toc`
+-- Constraints for table `post`
 --
-ALTER TABLE `toc`
-  ADD CONSTRAINT `toc_ibfk_8` FOREIGN KEY (`toc_supporters`) REFERENCES `post` (`post_supporters`) ON DELETE CASCADE,
-  ADD CONSTRAINT `toc_ibfk_3` FOREIGN KEY (`toc_id`) REFERENCES `post` (`post_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `toc_ibfk_4` FOREIGN KEY (`toc_views`) REFERENCES `post` (`post_views`) ON DELETE CASCADE,
-  ADD CONSTRAINT `toc_ibfk_5` FOREIGN KEY (`toc_title`) REFERENCES `post` (`post_title`) ON DELETE CASCADE,
-  ADD CONSTRAINT `toc_ibfk_6` FOREIGN KEY (`toc_cat`) REFERENCES `post` (`post_cat`) ON DELETE CASCADE,
-  ADD CONSTRAINT `toc_ibfk_7` FOREIGN KEY (`toc_author`) REFERENCES `post` (`post_author`) ON DELETE CASCADE;
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_3` FOREIGN KEY (`post_author`) REFERENCES `users` (`user_name`) ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

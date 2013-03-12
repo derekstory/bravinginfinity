@@ -7,8 +7,8 @@ include 'header.php';
 <div id="signin">
  <form>
   <form action="#">
-           <p><label for="user_name">User Name</label> <input type="text" id="username" style="height:50px;text-align:left; width:100%" /></p>
-           <p><label for="user_email">Password</label> <input type="PASSWORD" id="user_password" style="height:50px;text-align:left; width: 100%"/></p>
+           <p><label for="user_name">User Name</label> <input type="text" id="user_name" style="height:50px;text-align:left; width:100%" /></p>
+           <p><label for="user_pass">Password</label> <input type="PASSWORD" id="user_pass" style="height:50px;text-align:left; width: 100%"/></p>
                     <p class="submit"><input type="submit" value="Sign-In" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
  </form>
 </div>
@@ -17,23 +17,89 @@ include 'header.php';
 <div id="contentsignup">
 <h1 style="color:#fff">-Register-</h1>
 
-
- <form>
-  <form action="#">
-           <p><label for="user_name">User Name</label> <input type="text" id="username" style="height:50px;text-align:left; width:100%" /></p>
-           <p><label for="user_email">Password</label> <input type="PASSWORD" id="user_password" style="height:50px;text-align:left; width: 100%"/></p>
-           <p><label for="user_email">Repeat Password</label> <input type="PASSWORD" id="user_password"style="height:50px;text-align:left;width:100%" /></p>
-           <p><label for="user_email">E-mail Address</label> <input type="text" id="user_email" style="height:50px;text-align:left;width:100%" /></p>
-
+<?php
+if($_SERVER['REQUEST_METHOD'] != 'POST')
+{
+echo '<form method="post" action="">
+           User Name<input type="text" name="user_name"style="height:50px;text-align:left; width:100%"/><br />
+           Password<input type="PASSWORD" name="user_pass" style="height:50px;text-align:left; width: 100%"/><br />
+           Repeat Password<input type="PASSWORD" name="user_pass_check"style="height:50px;text-align:left;width:100%"/><br />
+           E-mail Address<input type="text" name="user_email" style="height:50px;text-align:left;width:100%" /><br />
  <h6><style="color:#fff;display:inline">By clicking "Register", I acknowledge that I have read and agree with the:</h6>
  <h5><a href="termsandconditions.php"><style="color:#fff;display:inline">Terms and Conditions</a></h5>
-           <p class="submit"><input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
+           <input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
+ </form>';
+}
 
- </form>
+else
+{
+	$errors = array();
+	if(isset($_POST['user_name']))
+        {
+               if(!ctype_alnum($_POST['user_name']))
+               {
+			$errors[] = 'The username can only contain letters and digits.';
+               }
+ 	       if(strlen($_POST['user_name']) > 30)
+               {
+                        $errors[] = 'The username cannot be longer than 30 characters.';
+               }
+        }
+        else
+        {
+               $errors[] = 'The username field must not be empty.';
+        }
+
+ 	if(isset($_POST['user_pass']))
+        {
+               if($_POST['user_pass'] != $_POST['user_pass_check'])
+               {
+                        $errors[] = 'The two passwords did not match.';
+               }
+        }
+        else
+        {
+               $errors[] = 'The password field cannot be empty.';
+        }
+
+        if(!empty($errors))
+        {
+               echo 'Uh-oh.. a couple of fields are not filled in correctly..<br /><br />';
+		echo '<ul>';
+		foreach($errors as $key => $value)
+		{
+			echo '<li>' . $value . '</li>';
+		}
+		echo '</ul>';
+	}
+        else
+
+        {
+                $sql = "INSERT INTO
+		               			users(user_name, user_pass, user_email ,user_date, user_level)
+			                       	VALUES('" . mysql_real_escape_string($_POST['user_name']) . "',
+					        '" . sha1($_POST['user_pass']) . "',
+					        '" . mysql_real_escape_string($_POST['user_email']) . "',
+						     NOW(),
+						     0)";
+
+		$result = mysql_query($sql);
+                if(!result)
+                {
+                        echo 'Something went wrong while registering. Please try again.';
+                }
+                else
+                {
+			echo 'Succesfully registered. You can now sign in and start posting!';
+                }
+     }
+}
+?>
+
 </div>
 
 
 
-<?php
+
 include 'footer.php';
 ?>
