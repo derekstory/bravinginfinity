@@ -46,6 +46,8 @@ body {
         text-align: right;
         background: #fff;
 }
+
+@media only screen and (min-width: 640px) {
 #search input[type="text"] {
     background: #fff;
     position: fixed;
@@ -64,13 +66,14 @@ body {
     -moz-transition: all 0.7s ease 0s;
     -o-transition: all 0.7s ease 0s;
       }
+}
 .register:link {
     text-decoration: none;
 }
 
 .register:hover {
     color: #000;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* =Menu

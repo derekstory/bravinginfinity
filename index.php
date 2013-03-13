@@ -3,6 +3,7 @@ include 'connect.php';
 include 'header.php';
 ?>
 
+<h5 align="center" style="background:#000;color:#fff;margin-top:75px;margin-bottom:-92px;width:100%;height:28px;padding-top:20px">Bring your ideas to the table. Change yourself. Your community. Your world.</h5>
    <div id="content">
         <table class="width-100 bordered" id="list">
             <thead class="thead-black">

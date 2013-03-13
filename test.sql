@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 12, 2013 at 04:27 PM
+-- Generation Time: Mar 13, 2013 at 03:56 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.3.10-1ubuntu3.5
 
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
 
 --
 -- Dumping data for table `users`
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_level`, `user_date`) VALUES
 (3, 'dwreck08', '111111', 'derek.a.story@gmail.com', 0, '2013-03-12 05:00:00'),
-(27, 'derekstory', '9ff9773e3d33bf4f041bc83d2baabd195caf9ced', 'derek.a.story@gmail.com', 0, '2013-03-12 21:25:38');
+(113, 'derekstory2', 'e1c79a582b6629e6b39e9679f4bb964d25db4aa8', 'derek.a.storoy2gmaio.com', 0, '2013-03-13 20:50:04');
 
 --
 -- Constraints for dumped tables
