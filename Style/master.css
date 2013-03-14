@@ -183,15 +183,29 @@ input {
 
 
 /*---Profile---*/
+@media only screen and (min-width: 600px) {
 #profilestats{
-        width: 30%;
-        size: relative;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+        width: 200px;
         margin-top: -225px;
         margin-left: auto;
-        margin-right: 0;
+        margin-right: 50px;
+        border: 2px solid;
+        border-color: #fff;
+        border-radius: 17px;
+        padding-left: 3px;
+        }
+}
+@media only screen and (max-width: 600px) {
+#profilestats{
+        width: 200px;
+        margin-top: px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid;
+        border-color: #fff;
+        border-radius: 17px;
+        padding-left: 3px;
+        }
 }
 #profileheader {
     -webkit-background-size: cover;
@@ -204,6 +218,7 @@ input {
     margin-top: 100px;
 
 }
+@media only screen and (min-width: 550px) {
 #profileactivity {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -212,6 +227,7 @@ input {
     color: #fff;
     margin-left: 30px;
     margin-top: 20px;
+  }
 }
 
 /*---Post---*/
@@ -304,6 +320,37 @@ input {
 }
 
 /*---Content---*/
+#posthead {
+    margin-top:100px;
+    color: #fff;
+    font-size: 2.8em;
+    display:block
+}
+#postauth {
+    margin-top: -85px;
+    color: #fff;
+    font-size: 2.5em;
+    display:block
+
+}
+#postdate {
+    margin-top: -55px;
+    color: #fff;
+    font-size: 1.5em;
+    display:block
+}
+#postresult {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width:75%;
+    color: #fff;
+    margin-top:30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    size: relative;
+}
 .reply textarea{
         display: block;
         width: 100%;
@@ -318,24 +365,14 @@ input {
         resize: none;
         background:rgba(255,255,255,.05)
 }
-#postresult {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    width: 80%;
-    color: #fff;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 125px;
-    size: relative;
-}
 #contentreply {
         width: 70%;
         size: relative;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        margin-top: 0px;
+        max-width:800px;
+        margin-top: 60px;
         margin-left: auto;
         margin-right: auto;
 }

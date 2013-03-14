@@ -17,7 +17,7 @@ include 'header.php';
 
       <p>Doctus percipit cotidieque id vix, te vel velit zril, omittam mandamus an qui. Ei cum aperiam repudiare, no labores voluptua his, vel audiam interesset dissentiet cu. Rebum legimus nam cu. Nam et adhuc commodo omittam, vim quis petentium expetendis no, amet similique ex eam. Nam cu recusabo constituam suscipiantur, minim populo ex vim.</p>
 
-echo '<h4 style="color:#fff; margin-top:50px">Agree with the Terms and Conditions?<a href="signup.php"">Register</a> a new account for free and get started!</h4>
+<h4 style="color:#fff; margin-top:50px">Agree with the Terms and Conditions? <a href="signup.php"">Register</a> a new account for free and get started!</h4>
 </div>
 
 

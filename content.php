@@ -2,12 +2,16 @@
 include 'connect.php';
 include 'header.php';
 ?>
-
-
+<div id="posthead">
+    <h1 align="left">How we can save the world.</h1>
+</div>
+<div id="postauth">
+       <h6 align="left">Author: captain_kirk</h6>
+</div>
+<div id="postdate">
+       <h6 align="left">Date: 03/24/2013</h6>
+</div>
 <div id="postresult">
-    <h1 align="left" style="color:#fff;display:block">How we can save the world.</h1>
-       <h4 align="left" style="color:#fff; display: block;margin-top:-15px">Author: captain_kirk</h4>
-       <h7 align="left" style="color:#fff; display: block;margin-top:-10px">02/28/2013</h7>
          <p>Lorem ipsum dolor sit amet, soluta facilisis eam ei, at essent petentium nec. Veniam tantas oporteat duo et, pro ad libris vocibus reprehendunt. Alterum impedit intellegat duo ad. Elit delenit mel no. Ut mea democritum definitionem, cu prima quando recteque nam. Quod veniam ornatus nec cu, ne ius delenit contentiones.</p>
 
 <p>Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.</p>
