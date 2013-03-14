@@ -218,7 +218,7 @@ input {
     margin-top: 100px;
 
 }
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 600px) {
 #profileactivity {
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -318,20 +318,35 @@ input {
         -moz-background-size: cover;
         -o-background-size: cover;
 }
-
 /*---Content---*/
 #posthead {
     margin-top:100px;
     color: #fff;
     font-size: 2.8em;
+    display:block;
+}
+
+@media only screen and (max-width: 800px) {
+#posthead {
+    margin-top:100px;
+    color: #fff;
+    font-size: 1.8em;
     display:block
+    }
 }
 #postauth {
     margin-top: -85px;
     color: #fff;
     font-size: 2.5em;
     display:block
-
+}
+@media only screen and (max-width: 800px) {
+#postauth {
+    margin-top: -45px;
+    color: #fff;
+    font-size: 1.5em;
+    display:block
+    }
 }
 #postdate {
     margin-top: -55px;
