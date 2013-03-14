@@ -3,16 +3,6 @@ include 'connect.php';
 include 'header.php';
 ?>
 
-<h1 style="color:#fff;margin-top:200px;margin-left:30px;margin-bottom:-80px">-Sign-In-</h1>
-<div id="signin">
- <form>
-  <form action="#">
-           <p><label for="user_name">User Name</label> <input type="text" id="user_name" style="height:50px;text-align:left; width:100%" /></p>
-           <p><label for="user_pass">Password</label> <input type="PASSWORD" id="user_pass" style="height:50px;text-align:left; width: 100%"/></p>
-                    <p class="submit"><input type="submit" value="Sign-In" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
- </form>
-</div>
-
 
 <div id="contentsignup">
 <h1 style="color:#fff">-Register-</h1>
@@ -34,8 +24,12 @@ echo '<form method="post" action="">
 else
 {
 	$errors = array();
-	if(isset($_POST['user_name']))
+        if(isset($_POST['user_name']))
         {
+               if(empty($_POST['user_name']))
+               {
+               $errors[] = die('The username field must not be empty. Please <a href="signup.php">try again</a>.');
+               }
                if(!ctype_alnum($_POST['user_name']))
                {
 			$errors[] = 'The username can only contain letters and digits.';
@@ -45,26 +39,28 @@ else
                         $errors[] = 'The username cannot be longer than 30 characters.';
                }
         }
-        else
-        {
-               $errors[] = 'The username field must not be empty.';
-        }
-
  	if(isset($_POST['user_pass']))
         {
                if($_POST['user_pass'] != $_POST['user_pass_check'])
                {
                         $errors[] = 'The two passwords did not match.';
                }
+               if(empty($_POST['user_pass']))
+               {
+                        $errors[] = die('The password field cannot be empty. Please <a href="signup.php">try again</a>.');
+               }
         }
-        else
+        if(isset($_POST['user_email']))
         {
-               $errors[] = 'The password field cannot be empty.';
+               if(empty($_POST['user_email']))
+               {
+                        $errors [] = die('The E-Mail Address field must not be empty. Please <a href="signup.php">try again</a>.');
+               }
         }
-
         if(!empty($errors))
         {
-               echo 'Uh-oh.. a couple of fields are not filled in correctly..<br /><br />';
+                $die;
+                echo 'Uh-oh.. a couple of fields are not filled in correctly. Please <a href="signup.php">try again</a>.<br /><br />';
 		echo '<ul>';
 		foreach($errors as $key => $value)
 		{
@@ -76,23 +72,23 @@ else
 
         {
                 $sql = "INSERT INTO
-		               			users(user_name, user_pass, user_email ,user_date, user_level)
-			                       	VALUES('" . mysql_real_escape_string($_POST['user_name']) . "',
-					        '" . sha1($_POST['user_pass']) . "',
-					        '" . mysql_real_escape_string($_POST['user_email']) . "',
-						     NOW(),
-						     0)";
-
+                        users(user_name, user_pass, user_email ,user_date, user_level)
+                        VALUES('" . ($_POST['user_name']) . "',
+                        '" . sha1($_POST['user_pass']) . "',
+		        '" . mysql_real_escape_string($_POST['user_email']) . "',
+	                NOW(),
+	                0)";
 		$result = mysql_query($sql);
-                if(!result)
+                if(!$result)
                 {
-                        echo 'Something went wrong while registering. Please try again.';
+                        echo 'The username already exist, please <a href="signup.php">try again</a>.';
                 }
                 else
                 {
-			echo 'Succesfully registered. You can now sign in and start posting!';
+			echo 'Succesfully registered. You can now <a href="signin.php">sign in</a> and start posting!';
                 }
-     }
+         }
+
 }
 ?>
 
@@ -100,6 +96,6 @@ else
 
 
 
-
+<?php
 include 'footer.php';
 ?>

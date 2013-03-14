@@ -46,6 +46,8 @@ body {
         text-align: right;
         background: #fff;
 }
+
+@media only screen and (min-width: 640px) {
 #search input[type="text"] {
     background: #fff;
     position: fixed;
@@ -64,13 +66,14 @@ body {
     -moz-transition: all 0.7s ease 0s;
     -o-transition: all 0.7s ease 0s;
       }
+}
 .register:link {
     text-decoration: none;
 }
 
 .register:hover {
     color: #000;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 /* =Menu
@@ -269,13 +272,13 @@ input {
 
 /*---Sign-In / Register---*/
 #contentsignup {
-        width: 30%;
+        width: 500px;
         padding-top:80px;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        margin-top: -392px;
-        margin-left: auto;
+        margin-top: 25px;
+        margin-left: 0px;
         margin-right: auto;
         color: #fff;
         size: relative;
@@ -285,14 +288,14 @@ input {
         padding-left: 100px;
 }
 #signin {
-        width: 30%;
-        padding-top:80px;
+        width: 500px;
+        padding-top:0px;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         margin-top: 0px;
-        margin-left:30px;
-        margin-right: 20px;
+        margin-left:90px;
+        margin-right: auto;
         color: #fff;
 
         -webkit-background-size: cover;
