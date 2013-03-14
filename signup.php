@@ -19,6 +19,7 @@ echo '<form method="post" action="">
  <h5><a href="termsandconditions.php"><style="color:#fff;display:inline">Terms and Conditions</a></h5>
            <input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
  </form>';
+echo    ' <h4 style="color:#fff; margin-top:50px">Already a member?<a href="signin.php">Sign-In</a> to your account!</h4>';
 }
 
 else

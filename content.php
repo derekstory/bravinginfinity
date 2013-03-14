@@ -21,7 +21,7 @@ include 'header.php';
 </div>
 
 <form>
-
+    <hr style="width:80%; margin-top:30px"></hr>
   <div id="contentreply">
     <h1 align="left" style="color:#fff">Community</h1>
 
@@ -44,16 +44,12 @@ include 'header.php';
     <option>Reason Seven</option>
   </select>
 
-
-
-
-
   <div class="submit">
    <p class="submit"><input type="submit" value="Submit" style="height:25px;width:100px;background:rgba(255,255,255,.9);margin-top: 20px;color:#001D73; display:block;margin-left:0px"/></p>
 </form>
-    <hr style="width:50%"></hr>
 
-<h3 align="Left" style="color:#fff; display: block">Replies (4)</h3>
+
+<h3 align="Left" style="color:#fff; display: block;margin-top:30px">Replies (4)</h3>
 
     <h5 align="Left" style="color:#fff; display:inline">jerry.seinfield</h5>
          <h7 align="Left" style="color:#FFA8A8; display: inline">Encourager</h7>
