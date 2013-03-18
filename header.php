@@ -34,8 +34,11 @@
 
 
 
+<?php
 
-<div id="menu">
+
+{
+echo   '<div id="menu">
         <ul>
             <li><a href="post.php">New Post</a></li>
             <li><a href="popular.php">Popular</a></li>
@@ -47,7 +50,31 @@
             <li><a href="faq.php">FAQ</a></li>
             <li><a href="http://facebook.com"><img width="20px" src="/Style/images/facebook.png" style="border:0;margin-top:0px;width:20"/></a></li>
             <li><a href="https://twitter.com/bravinginfinity"><img width="20px" src="/Style/images/twitter.png" style="border:0;margin-top:0px;width:20"/></a></li>
-                   </ul>
-            <h4 align="right" style="width:30%;margin-top:-37px; margin-left:auto;margin-right:40px"><a href="signin.php" class="register">Sign-In</a> or <a href="signup.php" class="register">Register</a></h4>
-        <br style="clear: left" />
+                </ul>';
+            {
+ 			$sql = "SELECT
+						user_id,
+						user_name,
+						user_level
+					FROM
+						users
+					WHERE
+						user_name = '" . ($_SESSION['user_name']) . "'";
+
+			$result = mysql_query($sql);
+                        if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
+                                {
+                                echo      '<h6 align="right" style="width:30%;margin-top:-37px; margin-left:auto;margin-right:40px">Welcome <a href="signin.php" class="register"> ' . $_SESSION['user_name'] . ' </a> Not you? <a href="signout.php" class="register">Sign out.</a></h6>
+                                <br style="clear: left" />';
+                                }
+                                else
+                                {
+                                echo      '<h4 align="right" style="width:30%;margin-top:-37px; margin-left:auto;margin-right:40px"><a href="signin.php" class="register">Sign-In</a> or <a href="signup.php" class="register">Register</a></h4>
+                                <br style="clear: left" />';
+                                }
+              }
+}
+?>
 </div>
+
+
