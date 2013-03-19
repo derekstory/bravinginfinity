@@ -105,14 +105,19 @@ else
 							   post_cat,
 							   post_reason,
                                                            post_keywords,
-                                                           post_author)
+                                                           post_author,
+                                                           post_views,
+                                                           post_supporters,
+                                                           post_replytotal)
 				   VALUES('" . mysql_real_escape_string($_POST['post_title']) . "',
-							   " . mysql_real_escape_string($_POST['post_content']) . ",
-							   " . mysql_real_escape_string($_POST['post_cat']) . ",
-                                                           " . mysql_real_escape_string($_POST['post_reason']) . ",
-                                                           " . mysql_real_escape_string($_POST['post_keywords']) . ",
-							   " . $_SESSION['user_name'] . "
-							   )";
+							   '" . mysql_real_escape_string($_POST['post_content']) . "',
+							   '" . mysql_real_escape_string($_POST['post_cat']) . "',
+                                                           '" . mysql_real_escape_string($_POST['post_reason']) . "',
+                                                           '" . mysql_real_escape_string($_POST['post_keywords']) . "',
+							   '" . $_SESSION['user_name'] . "',
+							   0,
+                                                           0,
+                                                           0)";
 			$result = mysql_query($sql);
 			if(!$result)
 			{
