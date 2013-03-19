@@ -3,6 +3,7 @@ include 'connect.php';
 include 'header.php';
 ?>
 
+
 <h5 align="center" style="background:#000;color:#fff;margin-top:75px;margin-bottom:-92px;width:100%;height:28px;padding-top:20px">Add some form of site description or tag-line here.</h5>
    <div id="content">
         <table class="width-100 bordered" id="list">
@@ -20,17 +21,17 @@ include 'header.php';
 
 <?php
 
-$sql = "SELECT * FROM `post` ORDER BY `post_date` DESC LIMIT 0, 20 ";
+$sql = "SELECT * FROM `post` ORDER BY `post_date` DESC LIMIT 0, 20";
 
 $result = mysql_query($sql);
-
+$post_id = mysql_insert_id();
 while($row = mysql_fetch_assoc($result))
+
 {
 echo           '<tbody class="breakloop">
-
                 <tr>
                     <td class="centered">' . $row['post_views'] . '</td>
-                    <td class="centered">' . $row['post_title'] . '</td>
+                    <td class="centered"><a href="content.php?id='. $row['post_id'] . '">' . $row['post_title'] . '</a></td>
                     <td class="centered">' . $row['post_author'] . '</td>
                     <td class="centered">' . $row['post_cat'] . '</td>
                     <td class="centered">' . $row['post_replytotal'] . '</td>
@@ -42,6 +43,8 @@ echo           '<tbody class="breakloop">
 
         </tbody>
         </table>
+}
+
 <?php
 include 'footer.php';
 ?>

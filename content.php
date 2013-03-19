@@ -1,42 +1,55 @@
 <?php
 include 'connect.php';
 include 'header.php';
-?>
-<div id="posthead">
-    <h1 align="left">How we can save the world.</h1>
-</div>
-<div id="postauth">
-       <h6 align="left">Author: captain_kirk</h6>
-</div>
-<div id="postdate">
-       <h6 align="left">Date: 03/24/2013</h6>
-</div>
-<div id="postresult">
-         <p>Lorem ipsum dolor sit amet, soluta facilisis eam ei, at essent petentium nec. Veniam tantas oporteat duo et, pro ad libris vocibus reprehendunt. Alterum impedit intellegat duo ad. Elit delenit mel no. Ut mea democritum definitionem, cu prima quando recteque nam. Quod veniam ornatus nec cu, ne ius delenit contentiones.</p>
 
-<p>Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.</p>
+$sql = "SELECT *
 
-</p>Dico adipisci disputando ei mea. Aeque offendit mel te. Vim ex nisl exerci habemus, at latine incorrupte complectitur eam. Nam ad everti scaevola sapientem, est no meis tempor.Ius no suas saperet, no malis facilisi cum. Duo et omnis eirmod postulant. Quo at gloriatur constituam, ut decore placerat corrumpit sea. An aliquando dissentias est, sonet noluisse deterruisset qui et, eum cu vidit adolescens. No possim mentitum pri, eu vero movet accusamus ius. Ius at dicit accumsan.Lorem ipsum dolor sit amet, soluta facilisis eam ei, at essent petentium nec. Veniam tantas oporteat duo et, pro ad libris vocibus reprehendunt. Alterum impedit intellegat duo ad. Elit delenit mel no. Ut mea democritum definitionem, cu prima quando recteque nam. Quod veniam ornatus nec cu, ne ius delenit contentiones.</p>
+         FROM
+                   post
+         WHERE
+                   post_id = " . mysql_real_escape_string($_GET['id']). "";
 
-<p>Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.sdfsdfsdf</p>
+$result = mysql_query($sql);
+while($row = mysql_fetch_assoc($result))
 
-<p>Dico adipisci disputando ei mea. Aeque offendit mel te. Vim ex nisl exerci habemus, at latine incorrupte complectitur eam. Nam ad everti scaevola sapientem, est no meis tempor.Ius no suas saperet, no malis facilisi cum. Duo et omnis eirmod postulant. Quo at gloriatur constituam, ut decore placerat corrumpit sea. An aliquando dissentias est, sonet noluisse deterruisset qui et, eum cu vidit adolescens. No possim mentitum pri, eu vero movet accusamus ius. Ius at dicit accumsan.</p>
+if(!$result)
+{
+	echo '<h1 style="color:#fff, margin-top: 600px">The topic could not be displayed, please try again later.</h1>';
+}
+else
+{
+                echo '<div id="posthead">
+                <h1 align="left">' . $row['post_title'] . '</h1>
+                </div>';
 
-</div>
 
-<form>
+
+echo '<div id="postauth">
+       <h6 align="left">Author: ' . $row['post_author'] . '</h6>
+</div>';
+
+echo '<div id="postdate">
+       <h6 align="left">' . $row['post_date'] . '</h6>
+</div>';
+
+echo'<div id="postresult">'. $row['post_content'] . '
+        </div>';
+
+
+echo '<form>
     <hr style="width:80%; margin-top:30px"></hr>
   <div id="contentreply">
     <h1 align="left" style="color:#fff">Community</h1>
 
       <div class="reply">
-       <h6 align="Left" style="color:#fff; display: block; margin-left: 210px;margin-top:-50px">Views: 122</h6>
-        <h6 align="Left" style="color:#fff; display: block;margin-top: -5px; margin-bottom: 30px;margin-left:210px;margin-top:-10px">Supporters: 23</h6>
+       <h6 align="Left" style="color:#fff; display: block; margin-left: 210px;margin-top:-50px">Views: ' . $row['post_views'] . '</h6>
+        <h6 align="Left" style="color:#fff; display: block;margin-top: -5px; margin-bottom: 30px;margin-left:210px;margin-top:-10px">Supporters: ' . $row['post_supporters'] . ' </h6>
         <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
         <h7 align="Left" style="color:#fff">Bring something new to the table.</h7>
              <textarea id="txt"></textarea>
-      </div>
-
+      </div>';
+}
+?>
 <h6 align="Left" style="color:#fff; display: inline">Contribution</h6>
   <select style="display:inline">
     <option>Reason One</option>
