@@ -326,7 +326,7 @@ input {
     display:block;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1400px) {
 #posthead {
     margin-top:100px;
     color: #fff;
