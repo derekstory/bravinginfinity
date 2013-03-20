@@ -149,6 +149,14 @@ tbody.breakloop td.centered {
 }
 tbody.breakloop td.right {
 	text-align: right;
+
+}
+tbody.breakloop tr:hover td {
+	background: rgba(255,255,255,.05);
+        color: #fff;
+}
+tbody.breakloop tr:hover td a {
+        color: #a8c97f;
 }
 .width-100 {
     -webkit-box-shadow: 0 8px 6px -6px #151515;
