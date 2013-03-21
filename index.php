@@ -31,7 +31,7 @@ while($row = mysql_fetch_assoc($result))
 echo           '<tbody class="breakloop">
                 <tr>
                     <td class="centered">' . $row['post_views'] . '</td>
-                    <td class="left"><a href="content.php?id='. $row['post_id'] . '" style ="font-size:1.3em;">' . $row['post_title'] . '</a></td>
+                    <td class="left"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink">' . $row['post_title'] . '</a></td>
                     <td class="centered">' . $row['post_author'] . '</td>
                     <td class="centered">' . $row['post_cat'] . '</td>
                     <td class="centered">' . $row['post_replytotal'] . '</td>

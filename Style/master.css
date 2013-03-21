@@ -151,12 +151,20 @@ tbody.breakloop td.right {
 	text-align: right;
 
 }
+.tablelink:link {
+        text-decoration: none;
+        font-size: 1.5em;
+        color: #fff;
+}
+.tablelink:hover {
+        text-decoration: underline;
+}
 tbody.breakloop tr:hover td {
 	background: rgba(255,255,255,.0);
         color: #fff;
 }
 tbody.breakloop tr:hover td a {
-        color: #a8c97f;
+        color: #FFAF69;
 }
 .width-100 {
     -webkit-box-shadow: 0 8px 6px -6px #151515;
