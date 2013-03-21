@@ -152,7 +152,7 @@ tbody.breakloop td.right {
 
 }
 tbody.breakloop tr:hover td {
-	background: rgba(255,255,255,.05);
+	background: rgba(255,255,255,.0);
         color: #fff;
 }
 tbody.breakloop tr:hover td a {
