@@ -6,6 +6,7 @@ body {
 	background: #000 url(/Style/images/darkbackground.png);
         background-attachment: fixed;
         background-size: cover;
+        width: 100%;
 }
 #wrapper {
         width: 100%;
@@ -129,6 +130,8 @@ body {
         margin-top: 37px;
         margin-left: auto;
         margin-right: auto;
+        font-size: 1.3em;
+
 }
 tr.breakloop {
 	border: 2px solid #000;
@@ -136,13 +139,15 @@ tr.breakloop {
 }
 tr.breakloop th.text-centered {
     text-align: center;
+	background-color: rgba(255,255,255,0);
 }
 tbody.breakloop td {
-	color: #ffffff;
+	color: #fff;
         text-shadow: 0 1px 1px #111;
-	font: 14px Verdana, Helvetica, Arial, Sans-Serif;
+	font: Verdana, Helvetica, Arial, Sans-Serif;
         border-color: #000;
-	background-color: rgba(0,0,0,.3);
+	background-color: rgba(255,255,255,.05);
+        font-size: .8em;
 }
 tbody.breakloop td.centered {
 	text-align: center;
@@ -153,19 +158,16 @@ tbody.breakloop td.right {
 }
 .tablelink:link {
         text-decoration: none;
-        font-size: 1.5em;
-        color: #fff;
+        font-size: 1.2em;
 }
 .tablelink:hover {
         text-decoration: underline;
 }
 tbody.breakloop tr:hover td {
-	background: rgba(255,255,255,.0);
+	background: rgba(255,255,255,.1);
         color: #fff;
 }
-tbody.breakloop tr:hover td a {
-        color: #FFAF69;
-}
+
 .width-100 {
     -webkit-box-shadow: 0 8px 6px -6px #151515;
     -moz-box-shadow: 0 8px 6px -6px #151515;
@@ -293,7 +295,6 @@ input {
         resize: none;
         background:rgba(255,255,255,.05)
 }
-
 #termsandconditions {
         color:#fff;
         margin-top:150px;
@@ -301,7 +302,6 @@ input {
         margin-left:auto;
         margin-right:auto;
 }
-
 /*---Sign-In / Register---*/
 #contentsignup {
         width: 500px;
@@ -427,4 +427,16 @@ div.ftext {
 }
 .footer, .push {
         padding-bottom: 500px;
+}
+
+/*---POPULAR---*/
+.popular:link {
+    text-decoration: none;
+    font-size: 1.3em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.popular:hover {
+    text-decoration: underline;
 }

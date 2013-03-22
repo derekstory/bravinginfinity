@@ -3,7 +3,9 @@ include 'connect.php';
 include 'header.php';
 ?>
 
-<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margin-bottom:-92px;width:100%;height:50px;padding-top:20px">My Posts</h1>
+<h1 align="center" style="background:#000;color:#fff;margin-top:70px;;width:100%;height:50px;padding-top:20px">Most Popular: This Month</h1>
+<h6 align="center" style="background:#000;color:#fff; margin-top:-25px; margin-bottom:-92px;height: 25px">-<a href="popular.php" class="popular" style="color:#C9C9C9">Today</a>-<a href="popular_month.php" class="popular" style="color:#C9C9C9">Month</a>-<a href="popular_alltime.php" class="popular" style="color:#C9C9C9">All Time</a>-</h6>
+
    <div id="content">
         <table class="width-100 bordered" id="list">
             <thead class="thead-black">
@@ -20,14 +22,14 @@ include 'header.php';
 
 <?php
 
-$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "' LIMIT 0, 20 ";
+$sql = "SELECT * FROM `post` WHERE post_date >= now() - INTERVAL 30 DAY ORDER BY `post_views` DESC LIMIT 0, 20";
 
 $result = mysql_query($sql);
-
+$post_id = mysql_insert_id();
 while($row = mysql_fetch_assoc($result))
+
 {
 echo           '<tbody class="breakloop">
-
                 <tr>
                     <td class="centered">' . $row['post_views'] . '</td>
                     <td class="left"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#C4D7FF">' . $row['post_title'] . '</a></td>
@@ -42,6 +44,8 @@ echo           '<tbody class="breakloop">
 
         </tbody>
         </table>
+}
+
 <?php
 include 'footer.php';
 ?>

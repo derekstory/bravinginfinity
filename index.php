@@ -31,9 +31,9 @@ while($row = mysql_fetch_assoc($result))
 echo           '<tbody class="breakloop">
                 <tr>
                     <td class="centered">' . $row['post_views'] . '</td>
-                    <td class="left"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink">' . $row['post_title'] . '</a></td>
-                    <td class="centered">' . $row['post_author'] . '</td>
-                    <td class="centered">' . $row['post_cat'] . '</td>
+                    <td class="left"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#C4D7FF">' . $row['post_title'] . '</a></td>
+                    <td class="centered"><a href="profile.php?id='. $row['post_author'] . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $row['post_author'] . '</a></td>
+                    <td class="centered"><a href="category.php?id='. $row['post_cat'] . ' "class="tablelink" style="color:#FFA8A8; font-size:1em">' . $row['post_cat'] . '</a></td>
                     <td class="centered">' . $row['post_replytotal'] . '</td>
                     <td class="centered">' . $row['post_supporters'] . '</td>
                     <td class="centered">' . $row['post_date'] . '</td>
