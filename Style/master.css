@@ -118,16 +118,15 @@ body {
 /* =Index
 -----------------------------------------------------------------------------*/
 
-#content {
+#contenttable {
         width: 100%;
         min-height: 100%;
-        padding-top:55px;
-        padding-bottom:140px;
+        padding-top:0px;
         size: relative;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        margin-top: 37px;
+        margin-top: 0px;
         margin-left: auto;
         margin-right: auto;
         font-size: 1.3em;
