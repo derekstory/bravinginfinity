@@ -3,8 +3,8 @@ include 'connect.php';
 include 'header.php';
 ?>
 
-<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margin-bottom:-92px;width:100%;height:50px;padding-top:20px">My Posts</h1>
-   <div id="content">
+<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margin-bottom:0px;xwidth:100%;height:50px;padding-top:20px">My Posts</h1>
+   <div id="contenttable">
         <table class="width-100 bordered" id="list">
             <thead class="thead-black">
                 <tr class="breakloop">
@@ -20,7 +20,7 @@ include 'header.php';
 
 <?php
 
-$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "' LIMIT 0, 20 ";
+$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "' LIMIT 0, 1000";
 
 $result = mysql_query($sql);
 

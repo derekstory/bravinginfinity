@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include 'connect.php';
 include 'header.php';
 ?>
@@ -92,5 +93,6 @@ else
 
 </div>
 <?php
+ob_end_flush();
 include 'footer.php';
 ?>

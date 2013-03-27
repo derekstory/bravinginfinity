@@ -6,7 +6,7 @@ include 'connect.php';
         <table class="width-100 bordered" id="list">
             <thead class="thead-black">
                 <tr class="breakloop">
-<th class= "text-centered">Views</th>
+                  <th class= "text-centered">Views</th>
                     <th class= "text-centered">Title</th>
                     <th class= "text-centered">Author</th>
                     <th class= "text-centered">Category</th>
@@ -16,7 +16,6 @@ include 'connect.php';
                 </tr>
 
 <?php
-
 if($_GET["page"]){
     $pagenum = $_GET["page"];
 } else {
@@ -26,8 +25,7 @@ if($_GET["page"]){
 $rowsperpage = 10;
 $offset = ($pagenum - 1) * $rowsperpage;
 
-
-$q = mysql_query("SELECT * FROM `post` ORDER BY `post_date` DESC LIMIT $offset, $rowsperpage");
+$q = mysql_query("SELECT * FROM `post` ORDER BY `post_views` DESC LIMIT $offset, $rowsperpage");
 
 $total_q = mysql_query("SELECT * FROM `post`");
 $total_nums = mysql_num_rows($total_q);
