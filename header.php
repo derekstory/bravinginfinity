@@ -43,7 +43,7 @@ echo   '<div id="menu">
             <li><a href="post.php">New Post</a></li>
             <li><a href="popular.php">Popular</a></li>
             <li><a href="myposts.php">My Posts</a></li>
-            <li><a href="profile.php">My Profile</a>
+            <li><a href="myprofile.php">My Profile</a>
             <li><a href="following.php">Following</a></li>
             <li><a href="users.php">Users</a></li>
             <li><a href="concept.php">Concept</a></li>
@@ -64,7 +64,7 @@ echo   '<div id="menu">
 			$result = mysql_query($sql);
                         if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
                                 {
-                                echo      '<h6 align="right" style="width:30%;margin-top:-37px; margin-left:auto;margin-right:40px">Welcome <a href="signin.php" class="register"> ' . $_SESSION['user_name'] . ' </a> Not you? <a href="signout.php" class="register">Sign out.</a></h6>
+                                echo      '<h6 align="right" style="width:30%;margin-top:-37px; margin-left:auto;margin-right:40px">Welcome <a href="myprofile.php" class="register"> ' . $_SESSION['user_name'] . ' </a> Not you? <a href="signout.php" class="register">Sign out.</a></h6>
                                 <br style="clear: left" />';
                                 }
                                 else

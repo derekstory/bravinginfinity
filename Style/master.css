@@ -226,8 +226,9 @@ font-size: 2em;
 /*---Profile---*/
 @media only screen and (min-width: 600px) {
 #profilestats{
+        display: block;
         width: 200px;
-        margin-top: -225px;
+        margin-top: 10px;
         margin-left: auto;
         margin-right: 50px;
         border: 2px solid;
@@ -257,17 +258,53 @@ font-size: 2em;
     margin-left: 30px;
     margin-right: auto;
     margin-top: 100px;
-
 }
 @media only screen and (min-width: 600px) {
 #profileactivity {
+    background: rgba(255,255,255,.05);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     width: 50%;
     color: #fff;
+    margin-left: 100px;
+    margin-top: -550px;
+  }
+}
+@media only screen and (max-width: 600px) {
+#profileactivity {
+    background: rgba(255,255,255,.2);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 80%;
+    color: #fff;
     margin-left: 30px;
-    margin-top: 20px;
+
+  }
+}
+@media only screen and (min-width: 600px) {
+#profileactivity2 {
+    background: rgba(255,255,255,.05);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 50%;
+    color: #fff;
+    margin-left: 100px;
+    margin-top: -550px;
+  }
+}
+@media only screen and (max-width: 600px) {
+#profileactivity2 {
+    background: rgba(255,255,255,.2);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 80%;
+    color: #fff;
+    margin-left: 30px;
+
   }
 }
 
