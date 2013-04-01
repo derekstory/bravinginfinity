@@ -31,7 +31,8 @@ $result = mysql_query($sql);
 if($_SESSION['signed_in'] == true)
 {
 echo '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
-<input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>';
+<input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>
+<input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>';
 
 echo '<div id="profilestats">
       <h1 align="left" style="color:#fff">Statistics</h1>
@@ -94,7 +95,30 @@ echo '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored<
 }
         while($row = mysql_fetch_assoc($result))
 {
-echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567000">' . $row['post_title'] . '</a></h5>
+echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#A6D690">' . $row['post_title'] . '</a></h5>
+    <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+
+
+
+}
+?>
+</div>
+<div id="profileactivity3" class="hidden">
+
+
+
+<?php
+
+$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'";
+$result = mysql_query($sql);
+$count = mysql_num_rows($result);
+if($count > 0)
+{
+echo '<h1 align="left" style="display:block; font-size: 3.2em">Support Given</h1>';
+}
+        while($row = mysql_fetch_assoc($result))
+{
+echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' . $row['post_title'] . '</a></h5>
     <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
 
 
@@ -109,10 +133,17 @@ function fade(div_id, button)
 	if(button.value == 'Posts Authored'){
        		$('#profileactivity2').hide('slow');
        		$('#profileactivity').show('slow');
+       		$('#profileactivity3').hide('slow');
                 }
 	if(button.value == 'Replies Authored'){
        		$('#profileactivity').hide('slow');
        		$('#profileactivity2').show('slow');
+       		$('#profileactivity3').hide('slow');
+                }
+	if(button.value == 'Support Given'){
+       		$('#profileactivity3').show('slow');
+       		$('#profileactivity2').hide('slow');
+       		$('#profileactivity').hide('slow');
                 }
 }
 </SCRIPT>

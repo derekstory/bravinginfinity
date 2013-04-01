@@ -310,6 +310,30 @@ font-size: 2em;
 
   }
 }
+@media only screen and (min-width: 600px) {
+#profileactivity3 {
+    background: rgba(255,255,255,.00);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 50%;
+    color: #fff;
+    margin-left: 20px;
+    margin-top: -550px;
+  }
+}
+@media only screen and (max-width: 600px) {
+#profileactivity3 {
+    background: rgba(255,255,255,.00);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 80%;
+    color: #fff;
+    margin-left: 10px;
+
+  }
+}
 #authored {
 margin-right: auto;
 margin-left: 10px;
@@ -442,7 +466,7 @@ font-size: 1.5em;
     }
 }
 #postauth {
-    margin-top: -85px;
+    margin-top: -75px;
     color: #fff;
     font-size: 2.5em;
     display:block
