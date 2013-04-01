@@ -19,7 +19,7 @@ $result = mysql_query($sql);
         while($row = mysql_fetch_assoc($result))
         {
         echo '<div id="profileheader">
-            <h1 align="left" style="display:block; font-size:8em; margin-bottom:20px; margin-left: -8px">'. $row['user_name'] .'</h1>
+            <h1 align="left" id="authorname" style="display:block">'. $row['user_name'] .'</h1>
                 <h4 align="left" style="display;block;margin-top:-10px">Rating: '. $row[user_rating] .'</h4>
                     <h5 align="left" style="display;block;margin-top:-10px">Member since: ' . $row['user_date'] .'</h5>
             </div>
@@ -27,13 +27,14 @@ $result = mysql_query($sql);
         }
 }
 ?>
+<?php
+if($_SESSION['signed_in'] == true)
+{
+echo '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
+<input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>';
 
-<input type="button" value="Hide Post Authored" onclick="fade('profileactivity', this)"/>
-<input type="button" value="Replies Authored" onclick="fade('profileactivity2', this)"/>
-
-
-<div id="profilestats">
-    <h1 align="left" style="color:#fff">Statistics</h1>
+echo '<div id="profilestats">
+      <h1 align="left" style="color:#fff">Statistics</h1>
         <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Support Received: 67</h6>
@@ -43,31 +44,33 @@ $result = mysql_query($sql);
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total: 89</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Encouragement: 13</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Research: 2</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Devil's Advocate: 4</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Implementation: 0</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Networking: 0</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Curiosity/Other: 14</h6>
         <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Other Community Stats</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Supported other posts: 50</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Supported Others: 50</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Achievements: 90</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Accused of Spam or Abuse: 0</h6>
-</div>
-
-
+          </div>';
+}
+?>
 
 
 <div id="profileactivity">
-    <h1 align="left" style="display:block; font-size: 3.2em">30 Day Activity</h1>
-    <h3 align="left" style="display:block; font-size: 2em">Posts Authored</h3>
+
 
 <?php
 
 $sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'";
 $result = mysql_query($sql);
-
+$count = mysql_num_rows($result);
+if($count > 0)
+{
+echo '<h1 align="left" style="display:block; font-size: 3.2em">Posts Authored</h1>';
+}
         while($row = mysql_fetch_assoc($result))
 {
-echo    ' <h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' . $row['post_title'] . '</a></h5>
+echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' . $row['post_title'] . '</a></h5>
     <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
 
 
@@ -76,29 +79,34 @@ echo    ' <h5 align="left" style="display:block;margin-top:20p"><a href="content
 
 ?>
 </div>
-<div id="profileactivity2">
-    <h1 align="left" style="display:block; font-size: 3.2em">Posts Authored</h1>
+<div id="profileactivity2" class="hidden">
+
+
 
 <?php
 
 $sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'";
 $result = mysql_query($sql);
-
+$count = mysql_num_rows($result);
+if($count > 0)
+{
+echo '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
+}
         while($row = mysql_fetch_assoc($result))
 {
-echo    ' <h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' . $row['post_title'] . '</a></h5>
+echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567000">' . $row['post_title'] . '</a></h5>
     <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
 
 
 
 }
 ?>
-
 </div>
+
 <SCRIPT>
 function fade(div_id, button)
 {
-	if(button.value == 'Hide Post Authored'){
+	if(button.value == 'Posts Authored'){
        		$('#profileactivity2').hide('slow');
        		$('#profileactivity').show('slow');
                 }
@@ -108,7 +116,17 @@ function fade(div_id, button)
                 }
 }
 </SCRIPT>
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 <?php
 include 'footer.php';
 ?>
