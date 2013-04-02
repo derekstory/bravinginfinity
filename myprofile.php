@@ -32,27 +32,8 @@ if($_SESSION['signed_in'] == true)
 {
 echo '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
 <input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>
-<input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>';
-
-echo '<div id="profilestats">
-      <h1 align="left" style="color:#fff">Statistics</h1>
-        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Support Received: 67</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Replies Received: 34</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total Views: 430</h6>
-        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Replies Authored</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total: 89</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Encouragement: 13</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Research: 2</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Implementation: 0</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Networking: 0</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Curiosity/Other: 14</h6>
-        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Other Community Stats</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Supported Others: 50</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Achievements: 90</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Accused of Spam or Abuse: 0</h6>
-          </div>';
+<input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>
+<input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>';
 }
 ?>
 
@@ -120,13 +101,36 @@ echo '<h1 align="left" style="display:block; font-size: 3.2em">Support Given</h1
 {
 echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' . $row['post_title'] . '</a></h5>
     <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
-
-
-
 }
+
 ?>
 </div>
 
+
+<div id="profileactivity4" class="hidden">
+<?php
+if($_SESSION['signed_in'] == true)
+{
+echo   '<h1 align="left" style="color:#fff">Statistics</h1>
+        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Support Received: 67</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Replies Received: 34</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total Views: 430</h6>
+        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Replies Authored</>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total: 89</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Encouragement: 13</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Research: 2</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Implementation: 0</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Networking: 0</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Curiosity/Other: 14</h6>
+        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Other Community Stats</>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Supported Others: 50</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Achievements: 90</h6>
+          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Accused of Spam or Abuse: 0</h6>';
+}
+?>
+</div>
 <SCRIPT>
 function fade(div_id, button)
 {
@@ -134,16 +138,25 @@ function fade(div_id, button)
        		$('#profileactivity2').hide('slow');
        		$('#profileactivity').show('slow');
        		$('#profileactivity3').hide('slow');
+       		$('#profileactivity4').hide('slow');
                 }
 	if(button.value == 'Replies Authored'){
        		$('#profileactivity').hide('slow');
        		$('#profileactivity2').show('slow');
        		$('#profileactivity3').hide('slow');
+       		$('#profilesactivity4').hide('slow');
                 }
 	if(button.value == 'Support Given'){
        		$('#profileactivity3').show('slow');
        		$('#profileactivity2').hide('slow');
        		$('#profileactivity').hide('slow');
+       		$('#profileactivity4').hide('slow');
+                }
+	if(button.value == 'Statistics'){
+       		$('#profileactivity2').hide('slow');
+       		$('#profileactivity').hide('slow');
+       		$('#profileactivity3').hide('slow');
+       		$('#profileactivity4').show('slow');
                 }
 }
 </SCRIPT>

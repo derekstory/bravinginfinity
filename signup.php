@@ -86,7 +86,11 @@ else
                 }
                 else
                 {
+                 $user_id = mysql_insert_id();
+                                $sql = "COMMIT";
+		               	$result = mysql_query($sql);
 			echo 'Succesfully registered. You can now <a href="signin.php">sign in</a> and start posting!';
+			echo 'Succesfully registered. You can view your <a href="profile.php?id='. $user_id . '">profile</a> here!';
                 }
          }
 

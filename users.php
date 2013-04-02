@@ -25,7 +25,7 @@ echo '<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margi
             </thread>
 
 <?php
-$sql = "SELECT * FROM users LIMIT 0, 10";
+$sql = "SELECT * FROM users LIMIT 0, 20";
 $result = mysql_query($sql);
         while($row = mysql_fetch_assoc($result))
         {
@@ -33,7 +33,7 @@ $result = mysql_query($sql);
 
                 <tr>
                     <td class="centered">' . $row['user_rating'] . '</td>
-                    <td class="centered">' . $row['user_name'] . '</td>
+                    <td class="centered" style="width:125px"><a href="profile.php?id='. $row['user_id'] . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $row['user_name'] . '</a></td>
                     <td class="centered">' . $row['user_totalposts'] . '</td>
                     <td class="centered">' . $row['user_support'] . '</td>
                     <td class="centered">' . $row['user_date'] . '</td>

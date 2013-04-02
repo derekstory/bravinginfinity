@@ -25,7 +25,7 @@ if($_GET["page"]){
 $rowsperpage = 10;
 $offset = ($pagenum - 1) * $rowsperpage;
 
-$q = mysql_query("SELECT * FROM `post` WHERE post_date >= now() - INTERVAL 30 DAY ORDER BY `post_views` DESC LIMIT $offset, $rowsperpage");
+$q = mysql_query("SELECT * FROM `post`,`users` WHERE post_author = user_name AND post_date >= now() - INTERVAL 30 DAY ORDER BY `post_views` DESC LIMIT $offset, $rowsperpage");
 
 $total_q = mysql_query("SELECT * FROM `post`");
 $total_nums = mysql_num_rows($total_q);
@@ -43,13 +43,14 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $support = $r["post_supporters"];
         $date = $r["post_date"];
         $id = $r["post_id"];
+        $userid = $r["user_id"];
 
 echo           '<tbody class="breakloop">
 
                 <tr>
                     <td class="centered" style="width: 20px">' . $views . '</td>
                     <td class="left" style="width: 40%"><a href="content.php?id='. $id . ' "class="tablelink" style="color:#C4D7FF">' . $title . '</a></td>
-                    <td class="centered" style="width:125px"><a href="profile.php?id='. $author . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $author . '</a></td>
+                    <td class="centered" style="width:125px"><a href="profile.php?id='. $userid . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $author . '</a></td>
                     <td class="centered" style="width:150px"><a href="category.php?id='. $category . ' "class="tablelink" style="color:#FFA8A8; font-size:1em">' . $category . '</a></td>
                     <td class="centered" style="width: 88px">' . $replies . '</td>
                     <td class="centered" style="width: 20px">' . $support . '</td>

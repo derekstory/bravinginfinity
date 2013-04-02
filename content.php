@@ -12,10 +12,12 @@ while($row = mysql_fetch_assoc($result))
 $sql = "SELECT *
 
          FROM
-                   post
+                   `post`,`users`
 
          WHERE
-                   post_id = " . mysql_real_escape_string($_GET['id']). "";
+                   post_id = " . mysql_real_escape_string($_GET['id']). "
+         AND
+                   post_author = user_name";
 
 $result = mysql_query($sql);
 {
@@ -32,7 +34,7 @@ $result = mysql_query($sql);
         </div>';
 
         echo '<div id="postauth">
-             <h6 align="left">Author: <a href="profile.php?id='. $row['post_author'] . ' "class="tablelink" style="color:#567ABA; font-size:1em">' . $row['post_author'] . '</a></h6>
+             <h6 align="left">Author: <a href="profile.php?id='. $row['user_id'] . ' "class="tablelink" style="color:#567ABA; font-size:1em">' . $row['post_author'] . '</a></h6>
         </div>';
 
         echo '<div id="postdate">

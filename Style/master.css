@@ -272,7 +272,6 @@ font-size: 2em;
     width: 50%;
     color: #fff;
     margin-left: 20px;
-    margin-top: -550px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -295,7 +294,6 @@ font-size: 2em;
     width: 50%;
     color: #fff;
     margin-left: 20px;
-    margin-top: -550px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -319,11 +317,33 @@ font-size: 2em;
     width: 50%;
     color: #fff;
     margin-left: 20px;
-    margin-top: -550px;
   }
 }
 @media only screen and (max-width: 600px) {
 #profileactivity3 {
+    background: rgba(255,255,255,.00);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 80%;
+    color: #fff;
+    margin-left: 10px;
+
+  }
+}
+@media only screen and (min-width: 600px) {
+#profileactivity4 {
+    background: rgba(255,255,255,.00);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    width: 50%;
+    color: #fff;
+    margin-left: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+#profileactivity4 {
     background: rgba(255,255,255,.00);
     -webkit-background-size: cover;
     -moz-background-size: cover;
