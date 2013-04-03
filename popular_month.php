@@ -7,7 +7,7 @@ include 'header.php';
 <h6 align="center" style="background:#000;color:#fff; margin-top:-25px; margin-bottom:-0px;height: 25px">-<a href="popular.php" class="popular" style="color:#C9C9C9">24 Hours</a>-<a href="popular_month.php" class="popular" style="color:#C9C9C9">30 Days</a>-<a href="popular_alltime.php" class="popular" style="color:#C9C9C9">All Time</a>-</h6>
 
 <?php
-$rowsperpage = 10;
+$rowsperpage = 20;
 $total_q = mysql_query("SELECT * FROM `post`");
 $total_nums = mysql_num_rows($total_q);
 $total_pages = ceil($total_nums/$rowsperpage);
@@ -16,7 +16,7 @@ $total_pages = ceil($total_nums/$rowsperpage);
 <html>
 <head>
 
-<script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
+<script src="/Scripts/jqueryload.js"></script>
 <script>
 $(function(){
 var page = 1;

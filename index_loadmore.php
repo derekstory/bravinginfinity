@@ -23,7 +23,7 @@ if($_GET["page"]){
     $pagenum = 1;
 }
 
-$rowsperpage = 10;
+$rowsperpage = 20;
 $offset = ($pagenum - 1) * $rowsperpage;
 
 

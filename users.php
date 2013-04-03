@@ -10,8 +10,6 @@ $count = mysql_num_rows($result);
 
 echo '<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margin-bottom:0px;xwidth:100%;height:50px;padding-top:20px">Users: ' . $count . '</h1>';
 ?>
-
-
         <div id="contenttable">
              <table class="width-100 bordered" id="list">
                <thead class="thead-black">
@@ -26,6 +24,8 @@ echo '<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margi
 
 <?php
 $sql = "SELECT * FROM users LIMIT 0, 20";
+$postsql = mysql_query("SELECT post_title FROM `post` WHERE 'post_author' = $sql");
+$postnum = mysql_num_rows($postsql);
 $result = mysql_query($sql);
         while($row = mysql_fetch_assoc($result))
         {
@@ -34,7 +34,7 @@ $result = mysql_query($sql);
                 <tr>
                     <td class="centered">' . $row['user_rating'] . '</td>
                     <td class="centered" style="width:125px"><a href="profile.php?id='. $row['user_id'] . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $row['user_name'] . '</a></td>
-                    <td class="centered">' . $row['user_totalposts'] . '</td>
+                    <td class="centered">. $postnum .</td>
                     <td class="centered">' . $row['user_support'] . '</td>
                     <td class="centered">' . $row['user_date'] . '</td>
                </tr>';

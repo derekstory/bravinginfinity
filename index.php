@@ -11,7 +11,7 @@ include 'header.php'
 </div>
 
 <?php
-$rowsperpage = 10;
+$rowsperpage = 20;
 $total_q = mysql_query("SELECT * FROM `post`");
 $total_nums = mysql_num_rows($total_q);
 $total_pages = ceil($total_nums/$rowsperpage);
@@ -20,7 +20,7 @@ $total_pages = ceil($total_nums/$rowsperpage);
 <html>
 <head>
 
-<script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
+<script src="/Scripts/jqueryload.js"></script>
 <script>
 $(function(){
 var page = 1;

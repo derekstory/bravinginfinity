@@ -22,7 +22,7 @@ if($_GET["page"]){
     $pagenum = 1;
 }
 
-$rowsperpage = 10;
+$rowsperpage = 20;
 $offset = ($pagenum - 1) * $rowsperpage;
 
 $q = mysql_query("SELECT * FROM `post`,`users` WHERE post_author = user_name ORDER BY `post_views` DESC LIMIT $offset, $rowsperpage");

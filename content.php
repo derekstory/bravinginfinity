@@ -3,7 +3,8 @@ include 'connect.php';
 include 'header.php';
 
 $sql = "UPDATE post SET post_views = post_views +1
-         WHERE post_id = " . mysql_real_escape_string($_GET['id']). "";
+         WHERE post_id = " . mysql_real_escape_string($_GET['id']). "
+         AND post_author != '" . ($_SESSION['user_name']) . "'";
 $result = mysql_query($sql);
 while($row = mysql_fetch_assoc($result))
 ?>
@@ -44,6 +45,7 @@ $result = mysql_query($sql);
         echo '<div id="postresult">';
              echo nl2br(htmlentities($row['post_content']));
         echo '</div>';
+
         echo '<form>
              <hr style="width:80%; margin-top:30px"></hr>
         <div id="contentreply">
@@ -53,12 +55,12 @@ $result = mysql_query($sql);
              <h6 align="Left" style="color:#fff; display: block; margin-left: 210px;margin-top:-50px">Views: ' . $row['post_views'] . '</h6>
              <h6 align="Left" style="color:#fff; display: block;margin-top: -5px; margin-bottom: 30px;margin-left:210px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
              <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
-             <h7 align="Left" style="color:#fff">Bring something new to the table.</h7>
-             <textarea id="txt"></textarea>
-        </div>';
+             <h7 align="Left" style="color:#fff">Bring something new to the table.</h7>';
     }
 }
 ?>
+             <textarea id="txt"></textarea>
+        </div>
         <h6 align="Left" style="color:#fff; display: inline">Contribution</h6>
              <select style="display:inline">
              <option>Reason One</option>

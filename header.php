@@ -44,8 +44,6 @@ echo   '<div id="menu">
             <li><a href="popular.php">Popular</a></li>
             <li><a href="myposts.php">My Posts</a></li>
             <li><a href="myprofile.php">My Profile</a>
-            <li><a href="following.php">Following</a></li>
-            <li><a href="users.php">Users</a></li>
             <li><a href="concept.php">Concept</a></li>
             <li><a href="faq.php">FAQ</a></li>
             <li><a href="http://facebook.com"><img width="20px" src="/Style/images/facebook.png" style="border:0;margin-top:0px;width:20"/></a></li>

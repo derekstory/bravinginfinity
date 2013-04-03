@@ -2,7 +2,7 @@
 include 'connect.php';
 include 'header.php';
 ?>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
 
 
 <?php

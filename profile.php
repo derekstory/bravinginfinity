@@ -2,7 +2,7 @@
 include 'connect.php';
 include 'header.php';
 ?>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
 
 
 <?php
@@ -12,6 +12,8 @@ $sql = "SELECT *
                    users
          WHERE
                    user_id = " . mysql_real_escape_string($_GET['id']). "";
+
+
 $result = mysql_query($sql);
 {
 while($row = mysql_fetch_assoc($result))
@@ -46,22 +48,30 @@ echo '<input id="authored" type="button" value="Posts Authored" style="display: 
 
 <?php
 
-$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'";
+$sql = "SELECT *
+
+         FROM
+                   `users`,`post`
+         WHERE
+                    user_name = post_author
+         AND
+                     user_id = " . mysql_real_escape_string($_GET['id']). "";
+$posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
+$postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
-$count = mysql_num_rows($result);
-if($count > 0)
+if($postnum < 1)
 {
-echo '<h1 align="left" style="display:block; font-size: 3.2em">Posts Authored</h1>';
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">This user has not authored any orginal posts.</h1>';
 }
+        else
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">Posts Authored</h1>';
+{
         while($row = mysql_fetch_assoc($result))
-{
-echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' . $row['post_title'] . '</a></h5>
-    <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
-
-
-
+        {
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' .   $row['post_title'] . '</a></h5>
+        <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+        }
 }
-
 ?>
 </div>
 <div id="profileactivity2" class="hidden">
@@ -69,22 +79,31 @@ echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.
 
 
 <?php
+$sql = "SELECT *
 
-$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'";
+         FROM
+                   `users`,`post`
+         WHERE
+                    user_name = post_author
+         AND
+                     user_id = " . mysql_real_escape_string($_GET['id']). "";
+$posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
+$postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
-$count = mysql_num_rows($result);
-if($count > 0)
+if($postnum < 1)
 {
-echo '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">This user has not authored any replies to other users.</h1>';
 }
+        else
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
+{
         while($row = mysql_fetch_assoc($result))
-{
-echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#A6D690">' . $row['post_title'] . '</a></h5>
-    <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
-
-
-
+        {
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#A6D690">' .   $row['post_title'] . '</a></h5>
+        <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+        }
 }
+
 ?>
 </div>
 <div id="profileactivity3" class="hidden">
@@ -92,18 +111,29 @@ echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.
 
 
 <?php
+$sql = "SELECT *
 
-$sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'";
+         FROM
+                   `users`,`post`
+         WHERE
+                    user_name = post_author
+         AND
+                     user_id = " . mysql_real_escape_string($_GET['id']). "";
+$posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
+$postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
-$count = mysql_num_rows($result);
-if($count > 0)
+if($postnum < 1)
 {
-echo '<h1 align="left" style="display:block; font-size: 3.2em">Support Given</h1>';
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">This user has not offered any support to other users.</h1>';
 }
-        while($row = mysql_fetch_assoc($result))
+        else
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">Support Given</h1>';
 {
-echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' . $row['post_title'] . '</a></h5>
-    <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+        while($row = mysql_fetch_assoc($result))
+        {
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' .   $row['post_title'] . '</a></h5>
+        <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+        }
 }
 
 ?>
@@ -112,9 +142,18 @@ echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.
 
 <div id="profileactivity4" class="hidden">
 <?php
-if($_SESSION['signed_in'] == true)
+$sql = "SELECT *
+
+         FROM
+                   `users`,`post`
+         WHERE
+                    user_name = post_author
+         AND
+                     user_id = " . mysql_real_escape_string($_GET['id']). "";
+$result = mysql_query($sql);
+$row = mysql_fetch_assoc($result);
 {
-echo   '<h1 align="left" style="color:#fff">Statistics</h1>
+echo   '<h1 align="left" style="color:#fff; font-size: 3.2em">Statistics</h1>
         <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
           <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Support Received: 67</h6>
