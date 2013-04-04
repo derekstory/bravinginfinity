@@ -45,6 +45,11 @@ $sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'"
 $posttitle = mysql_query("SELECT post_title FROM `post` WHERE post_author = '" . $_SESSION['user_name'] . "'");
 $postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
+if($_SESSION['signed_in'] == false)
+{
+$die;
+}
+else
 if($postnum < 1)
 {
         echo '<h1 align="left" style="display:block; font-size: 3.2em">You have not authored any orginal posts.</h1>';
@@ -93,7 +98,7 @@ $postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
 if($postnum < 1)
 {
-        echo '<h1 align="left" style="display:block; font-size: 3.2em">You have not offered any support to other users..</h1>';
+        echo '<h1 align="left" style="display:block; font-size: 3.2em">You have not offered any support to other users.</h1>';
 }
         else
         echo '<h1 align="left" style="display:block; font-size: 3.2em">Posts Authored</h1>';
