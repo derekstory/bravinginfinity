@@ -16,7 +16,6 @@
         }
     </script>
     <script src="/static/js/breakloop.js"></script>
-
 </head>
 <body>
   <div id="wrapper">
@@ -30,13 +29,8 @@
        <input name="q" type="text" placeholder="Search Keywords..." />
      </form>
 </div>
-</div>
-
-
 
 <?php
-
-
 {
 echo   '<div id="menu">
         <ul>

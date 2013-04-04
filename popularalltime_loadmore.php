@@ -21,7 +21,6 @@ if($_GET["page"]){
 } else {
     $pagenum = 1;
 }
-
 $rowsperpage = 20;
 $offset = ($pagenum - 1) * $rowsperpage;
 
@@ -46,7 +45,6 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $userid = $r["user_id"];
 
 echo           '<tbody class="breakloop">
-
                 <tr>
                     <td class="centered" style="width: 20px">' . $views . '</td>
                     <td class="left" style="width: 40%"><a href="content.php?id='. $id . ' "class="tablelink" style="color:#C4D7FF">' . $title . '</a></td>

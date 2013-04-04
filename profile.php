@@ -4,7 +4,6 @@ include 'header.php';
 ?>
 <script type="text/javascript" src="/Scripts/jquery.js"></script>
 
-
 <?php
 $sql = "SELECT *
 
@@ -12,7 +11,6 @@ $sql = "SELECT *
                    users
          WHERE
                    user_id = " . mysql_real_escape_string($_GET['id']). "";
-
 
 $result = mysql_query($sql);
 {
@@ -27,27 +25,23 @@ else
 
         {
         echo '<div id="profileheader">
-            <h1 align="left" id="authorname" style="display:block">'. $row['user_name'] .'</h1>
-                <h4 align="left" style="display;block;margin-top:-10px">Rating: '. $row[user_rating] .'</h4>
-                    <h5 align="left" style="display;block;margin-top:-10px">Member since: ' . $row['user_date'] .'</h5>
-            </div>
-            <hr style="width:100%;margin-top:30px;margin-bottom:0px"></hr>';
+             <h1 align="left" id="authorname" style="display:block">'. $row['user_name'] .'</h1>
+             <h4 align="left" style="display;block;margin-top:-10px">Rating: '. $row[user_rating] .'</h4>
+             <h5 align="left" style="display;block;margin-top:-10px">Member since: ' . $row['user_date'] .'</h5>
+             </div>
+             <hr style="width:100%;margin-top:30px;margin-bottom:0px"></hr>';
         }
-
-echo '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
-<input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>
-<input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>
-<input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>';
+        echo '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
+             <input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>
+             <input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>
+             <input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>';
     }
 }
 ?>
 
-
 <div id="profileactivity">
 
-
 <?php
-
 $sql = "SELECT *
 
          FROM
@@ -69,15 +63,13 @@ if($postnum < 1)
         while($row = mysql_fetch_assoc($result))
         {
         echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' .   $row['post_title'] . '</a></h5>
-        <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+                <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
 ?>
 </div>
 <div id="profileactivity2" class="hidden">
 
-
-
 <?php
 $sql = "SELECT *
 
@@ -87,28 +79,27 @@ $sql = "SELECT *
                     user_name = post_author
          AND
                      user_id = " . mysql_real_escape_string($_GET['id']). "";
+
 $posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
 $postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
 if($postnum < 1)
 {
-        echo '<h1 align="left" style="display:block; font-size: 3.2em">This user has not authored any replies to other users.</h1>';
+        echo    '<h1 align="left" style="display:block; font-size: 3.2em">This user has not authored any replies to other users.</h1>';
 }
         else
-        echo '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
+        echo    '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
 {
         while($row = mysql_fetch_assoc($result))
         {
         echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#A6D690">' .   $row['post_title'] . '</a></h5>
-        <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+                 <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
-
 ?>
 </div>
+
 <div id="profileactivity3" class="hidden">
-
-
 
 <?php
 $sql = "SELECT *
@@ -119,26 +110,26 @@ $sql = "SELECT *
                     user_name = post_author
          AND
                      user_id = " . mysql_real_escape_string($_GET['id']). "";
+
 $posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
 $postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
+
 if($postnum < 1)
 {
-        echo '<h1 align="left" style="display:block; font-size: 3.2em">This user has not offered any support to other users.</h1>';
+        echo    '<h1 align="left" style="display:block; font-size: 3.2em">This user has not offered any support to other users.</h1>';
 }
         else
-        echo '<h1 align="left" style="display:block; font-size: 3.2em">Support Given</h1>';
+        echo    '<h1 align="left" style="display:block; font-size: 3.2em">Support Given</h1>';
 {
         while($row = mysql_fetch_assoc($result))
         {
         echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' .   $row['post_title'] . '</a></h5>
-        <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+                 <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
-
 ?>
 </div>
-
 
 <div id="profileactivity4" class="hidden">
 <?php
@@ -150,29 +141,31 @@ $sql = "SELECT *
                     user_name = post_author
          AND
                      user_id = " . mysql_real_escape_string($_GET['id']). "";
+
 $result = mysql_query($sql);
 $row = mysql_fetch_assoc($result);
 {
-echo   '<h1 align="left" style="color:#fff; font-size: 3.2em">Statistics</h1>
-        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Support Received: 67</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Replies Received: 34</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total Views: 430</h6>
-        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Replies Authored</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total: 89</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Encouragement: 13</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Research: 2</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Implementation: 0</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Networking: 0</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Curiosity/Other: 14</h6>
-        <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Other Community Stats</>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Supported Others: 50</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Achievements: 90</h6>
-          <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Accused of Spam or Abuse: 0</h6>';
+        echo    '<h1 align="left" style="color:#fff; font-size: 3.2em">Statistics</h1>
+                 <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Posts Authored</>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">New Posts Authored: 10</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Support Received: 67</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Replies Received: 34</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total Views: 430</h6>
+                 <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Replies Authored</>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Total: 89</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Encouragement: 13</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Research: 2</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Implementation: 0</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Networking: 0</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Curiosity/Other: 14</h6>
+                 <h3 align="Left" style="color:#fff; display:block; margin-top:20px">Other Community Stats</>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Supported Others: 50</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Achievements: 90</h6>
+                 <h6 align="Left" style="color:#fff; display:block; margin-top:-5px">Accused of Spam or Abuse: 0</h6>';
 }
 ?>
 </div>
+
 <SCRIPT>
 function fade(div_id, button)
 {
@@ -202,17 +195,7 @@ function fade(div_id, button)
                 }
 }
 </SCRIPT>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+
 <?php
 include 'footer.php';
 ?>

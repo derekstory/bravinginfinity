@@ -13,9 +13,6 @@ $total_nums = mysql_num_rows($total_q);
 $total_pages = ceil($total_nums/$rowsperpage);
 ?>
 
-<html>
-<head>
-
 <script src="/Scripts/jqueryload.js"></script>
 <script>
 $(function(){
@@ -37,18 +34,11 @@ $("#content").append(data);
 });
 </script>
 
-</head>
-<body>
 <?php
 
 echo '<div id="content"></div>
-<input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'">';
-
+      <input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'">';
 ?>
-
- </tbody>
-        </table>
-
 
 <?php
 include 'footer.php';

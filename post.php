@@ -2,7 +2,6 @@
 include 'connect.php';
 include 'header.php';
 
-
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
         echo'<div id="contentpost">
@@ -130,12 +129,10 @@ else
 		               	$result = mysql_query($sql);
 
 				echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You have succesfully created <a href="content.php?id='. $post_id . '">your new topic</a></h4>.';
-
 			}
               }
         }
 }
-
 
 include 'footer.php';
 ?>

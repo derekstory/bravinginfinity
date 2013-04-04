@@ -15,13 +15,13 @@ echo '<form method="post" action="">
            Password<input type="PASSWORD" name="user_pass" style="height:50px;text-align:left; width: 100%"/><br />
            Repeat Password<input type="PASSWORD" name="user_pass_check"style="height:50px;text-align:left;width:100%"/><br />
            E-mail Address<input type="text" name="user_email" style="height:50px;text-align:left;width:100%" /><br />
- <h6><style="color:#fff;display:inline">By clicking "Register", I acknowledge that I have read and agree with the:</h6>
- <h5><a href="termsandconditions.php"><style="color:#fff;display:inline">Terms and Conditions</a></h5>
-           <input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
- </form>';
-echo    ' <h4 style="color:#fff; margin-top:50px">Already a member? <a href="signin.php">Sign-In</a> to your account!</h4>';
-}
+      <h6><style="color:#fff;display:inline">By clicking "Register", I acknowledge that I have read and agree with the:</h6>
+      <h5><a href="termsandconditions.php"><style="color:#fff;display:inline">Terms and Conditions</a></h5>
+          <input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
+      </form>';
 
+echo ' <h4 style="color:#fff; margin-top:50px">Already a member? <a href="signin.php">Sign-In</a> to your account!</h4>';
+}
 else
 {
 	$errors = array();
@@ -90,7 +90,6 @@ else
                                 $sql = "COMMIT";
 		               	$result = mysql_query($sql);
 			echo 'Succesfully registered. You can now <a href="signin.php">sign in</a> and start posting!';
-			echo 'Succesfully registered. You can view your <a href="profile.php?id='. $user_id . '">profile</a> here!';
                 }
          }
 
@@ -98,8 +97,6 @@ else
 ?>
 
 </div>
-
-
 
 <?php
 include 'footer.php';
