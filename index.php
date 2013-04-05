@@ -3,7 +3,7 @@ include 'connect.php';
 include 'header.php'
 ?>
 
-<h5 align="center" style="background:#000;color:#fff;margin-top:75px;margin-bottom:0px;width:100%;height:28px;padding-top:20px">Add some form of site description or tag-line here.</h5>
+
 
 <?php
 $rowsperpage = 20;

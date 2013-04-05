@@ -1,6 +1,8 @@
 /* =Typography
 -----------------------------------------------------------------------------*/
-html { height: auto; }
+html {
+        height: auto;
+}
 body {
 	height: auto; width: auto; margin: auto;
 	background: #000 url(/Style/images/darkbackground.png);
@@ -16,56 +18,40 @@ body {
         margin-bottom: auto;
         min-height: 100%;
 	overflow: auto;
-}       background: -moz-linear-gradient(top, #000 0%, #fff 100%);
-
-
+        background: -moz-linear-gradient(top, #000 0%, #fff 100%);
+}
 /* =Header
 -----------------------------------------------------------------------------*/
-
-#header {
-        position: fixed;
-	margin-top: 0px;
-        background: #fff;
-        height: 80px;
-        height: 300px;
-        width: 100%;
+#fixedhead {
+    height: 30px;
+    margin-left: auto;
+    margin-right: 20px;
+    padding-top: 5px;
+    margin-top: 7px;
+    margin-bottom: 135px;
 }
-#logo {
-        width: 20%;
-        margin-left: 0px;
-        margin-right: auto;
-        position: fixed;
-        padding-top: 0;
+#fixedhead2 {
+    background: #3D3D3D;
+    width: 100%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
 }
-.signin {
-        position: fixed;
-	margin-top: 0px;
-        margin-left: auto;
-        margin-right: 20px;
-        width: 100%;
-        height: 80px;
-        text-align: right;
-        background: #fff;
-}
-@media only screen and (min-width: 700px) {
 #search input[type="text"] {
+    display: none;
     background: #fff;
-    position: fixed;
     border: 0 none;
     font: bold 12px Arial,Helvetica,Sans-serif;
     color: #000;
-    width: 20%;
-    height: 30px;
+    width: 200px;
+    height: 20px;
     text-align: left;
-    margin-bottom:-60px;
-    margin-top: -37px;
-    margin-left: 310px;
     border-radius: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.9) inset;
     -webkit-transition: all 0.7s ease 0s;
     -moz-transition: all 0.7s ease 0s;
     -o-transition: all 0.7s ease 0s;
-      }
 }
 .register:link {
     text-decoration: none;
@@ -78,47 +64,36 @@ body {
 
 /* =Menu
 -----------------------------------------------------------------------------*/
-
 #menu {
-        width: 100%;
-        margin-left: 0px;
+        width: 900px;
+        margin-left: auto;
         margin-right: auto;
-        position: fixed;
-        display: inline-block;
-        background: rgba(0,0,0,1);
-        height: 42px;
-        margin-top: 50px;
-        white-space: nowrap;
-}
-#menu ul {
-	margin: 0;
-	padding: 0;
-	float: left;
+        background: rgba(0,0,0,0);
+        margin-bottom: 100px;
 }
 #menu ul li {
 	display: inline;
 }
 #menu ul li a {
-	float: left;
 	text-decoration: none;
-	color: #fff;
 	padding: 10.5px 11px;
-	background-color: #000;
 }
 #menu ul li a:visited {
 	color: #fff;
 	text-decoration: none;
 }
 #menu ul li a:hover, .menu ul li .current{
-	color: #000;
-	background-color:rgba(255,255,255,1);
+	color: #fff;
+	background-color:rgba(255,255,255,0);
+        text-decoration: underline;
 }
+
 
 /* =Index
 -----------------------------------------------------------------------------*/
 
 #contenttable {
-        width: 100%;
+        width: 900px;
         min-height: 100%;
         padding-top:0px;
         size: relative;
@@ -128,7 +103,7 @@ body {
         margin-top: 0px;
         margin-left: auto;
         margin-right: auto;
-        font-size: 1.3em;
+        font-size: 1.4em;
 
 }
 tr.breakloop {
@@ -143,8 +118,8 @@ tbody.breakloop td {
 	color: #fff;
         text-shadow: 0 1px 1px #111;
 	font: Verdana, Helvetica, Arial, Sans-Serif;
-        border-color: #000;
-	background-color: rgba(255,255,255,.05);
+        border-color: rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,.00);
         font-size: .8em;
 }
 tbody.breakloop td.centered {
@@ -162,7 +137,7 @@ tbody.breakloop td.right {
         text-decoration: underline;
 }
 tbody.breakloop tr:hover td {
-	background: rgba(255,255,255,.1);
+	background: rgba(255,255,255,.05);
         color: #fff;
 }
 
@@ -225,6 +200,12 @@ font-size: 2em;
 }
 
 /*---Profile---*/
+
+#profbutton {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
 @media only screen and (min-width: 600px) {
 #profilestats{
         display: block;
@@ -248,14 +229,11 @@ font-size: 2em;
     margin-bottom: 18px;
 }
 #profileheader {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    width: 40%;
-    color: #fff;
-    margin-left: 30px;
+    width: 1200px;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    color: #fff;
+    margin-top: -50px;
 }
 @media only screen and (max-width: 600px) {
 #authorname {
@@ -269,9 +247,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 50%;
+    width: 1200px;
     color: #fff;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -280,9 +259,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 100%;
+    width: 1200px;
     color: #fff;
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -291,9 +271,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 50%;
+    width: 1200px;
     color: #fff;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -302,10 +283,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 80%;
+    width: 1200px;
     color: #fff;
-    margin-left: 10px;
-
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -314,9 +295,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 50%;
+    width: 1200px;
     color: #fff;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -325,10 +307,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 80%;
+    width: 1200px;
     color: #fff;
-    margin-left: 10px;
-
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -337,9 +319,10 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 50%;
+    width: 1200px;
     color: #fff;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -348,15 +331,16 @@ font-size: 2em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width: 80%;
+    width: 1200px;
     color: #fff;
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
 
   }
 }
 #authored {
 margin-right: auto;
-margin-left: 10px;
+margin-left: 0px;
 width: 180px;
 background: rgba(0,0,0,0);
 margin-top: 30px;
@@ -388,7 +372,6 @@ font-size: 1.5em;
 #contentpost {
         width: 80%;
         min-height: 100%;
-        padding-top:70px;
         padding-bottom:140px;
         size: relative;
         -webkit-background-size: cover;
@@ -440,52 +423,46 @@ font-size: 1.5em;
 /*---Sign-In / Register---*/
 #contentsignup {
         width: 500px;
-        padding-top:80px;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        margin-top: 25px;
-        margin-left: 0px;
+        margin-left: auto;
         margin-right: auto;
         color: #fff;
         size: relative;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
-        padding-left: 100px;
+        padding-right: 500px;
 }
 #signin {
         width: 500px;
-        padding-top:0px;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        margin-top: 0px;
-        margin-left:90px;
+        margin-top: -100px;
+        margin-left:auto;
         margin-right: auto;
         color: #fff;
-
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
+        padding-right: 500px;
 }
 /*---Content---*/
 #posthead {
-    margin-top:100px;
+    width: 1200px;
+    margin-top:0px;
     color: #fff;
-    font-size: 2.8em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.8em;
     display:block;
 }
 
 @media only screen and (max-width: 1400px) {
 #posthead {
-    margin-top:100px;
+    margin-top:0px;
     color: #fff;
     font-size: 1.8em;
     display:block
     }
 }
 #postauth {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: -75px;
     color: #fff;
     font-size: 2.5em;
@@ -500,6 +477,9 @@ font-size: 1.5em;
     }
 }
 #postdate {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: -55px;
     color: #fff;
     font-size: 1.5em;
@@ -509,7 +489,7 @@ font-size: 1.5em;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    width:75%;
+    width:1000px;
     color: #fff;
     margin-top:30px;
     margin-left: auto;
@@ -532,7 +512,7 @@ font-size: 1.5em;
         background:rgba(255,255,255,.05)
 }
 #contentreply {
-        width: 70%;
+        width: 700px;
         size: relative;
         -webkit-background-size: cover;
         -moz-background-size: cover;

@@ -6,13 +6,6 @@ include 'connect.php';
         <table class="width-100 bordered" id="list">
             <thead class="thead-black">
                 <tr class="breakloop">
-                  <th class= "text-centered">Views</th>
-                    <th class= "text-centered">Title</th>
-                    <th class= "text-centered">Author</th>
-                    <th class= "text-centered">Category</th>
-                    <th class= "text-centered">Thoughts</th>
-                    <th class= "text-centered">Encouragers</th>
-                    <th class= "text-centered">Date</th>
                 </tr>
 
 <?php
@@ -46,16 +39,17 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $userid = $r["user_id"];
 
 echo           '<tbody class="breakloop">
+         <tr>
+              <td class="centered">V' . $views . ' - R' .$replies. ' - S' . $support . '</td>
+              <td class="left" style="width: 750px">
+                  <a href="content.php?id='. $id . ' "class="tablelink" style="color:#FFF; font-size: 1.4em; display: inline; margin-bottom:10px">' . $title . '</a>
+                  <a href="category.php?id='. $category . ' "class="tablelink" style="color:#FFA8A8; font-size:.8em">' . $category . '</a>
+                  <a href="profile.php?id='. $userid . ' "class="tablelink" style="color:#FCFFDB; font-size:1.2em; margin-right: 0px; display: block">' . $author . '</a>
+                  <div style="font-size: .8em, display: inline">' .$date . '</div>
+              </td>
 
-                <tr>
-                    <td class="centered" style="width: 20px">' . $views . '</td>
-                    <td class="left" style="width: 40%"><a href="content.php?id='. $id . ' "class="tablelink" style="color:#C4D7FF">' . $title . '</a></td>
-                    <td class="centered" style="width:125px"><a href="profile.php?id='. $userid . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $author . '</a></td>
-                    <td class="centered" style="width:150px"><a href="category.php?id='. $category . ' "class="tablelink" style="color:#FFA8A8; font-size:1em">' . $category . '</a></td>
-                    <td class="centered" style="width: 88px">' . $replies . '</td>
-                    <td class="centered" style="width: 20px">' . $support . '</td>
-                    <td class="centered" style="width: 150px">' . $date . '</td>
-               </tr>';
+              </tr>';
+
     }
 }
 

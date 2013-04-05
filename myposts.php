@@ -20,7 +20,7 @@ if($count < 1)
    }
    else
    {
-        echo '<h1 align="center" style="background:#000;color:#fff;margin-top:70px;margin-bottom:0px;xwidth:100%;height:50px;padding-top:20px">My Posts</h1>
+        echo '<h1 align="center" style="color:#fff;margin-top:-70px;margin-bottom:0px;xwidth:100%;height:50px;padding-top:20px">My Posts</h1>
               <div id="contenttable">
               <table class="width-100 bordered" id="list">
               <thead class="thead-black">

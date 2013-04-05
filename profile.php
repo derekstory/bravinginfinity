@@ -29,13 +29,15 @@ else
              <h4 align="left" style="display;block;margin-top:-10px">Rating: '. $row[user_rating] .'</h4>
              <h5 align="left" style="display;block;margin-top:-10px">Member since: ' . $row['user_date'] .'</h5>
              </div>
-             <hr style="width:100%;margin-top:30px;margin-bottom:0px"></hr>';
+             <hr style="width:60%;margin-top:30px;margin-bottom:0px"></hr>';
         }
-        echo '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
+        echo '<div id="profbutton"">
+             <input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
              <input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>
              <input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>
-             <input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>';
-    }
+             <input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>
+             </div>';
+       }
 }
 ?>
 

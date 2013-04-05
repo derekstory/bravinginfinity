@@ -30,10 +30,12 @@ $result = mysql_query($sql);
 <?php
 if($_SESSION['signed_in'] == true)
 {
-echo    '<input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
+echo    '<div id="profileheader" style="margin-top: 15px">
+        <input id="authored" type="button" value="Posts Authored" style="display: inline" onclick="fade(profileactivity, this)"/>
         <input id ="authored" type="button" value="Replies Authored" style="display: inline" onclick="fade(profileactivity2, this)"/>
                <input id="authored" type="button" value="Support Given" style="display: inline" onclick="fade(profileactivity3, this)"/>
-               <input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>';
+               <input id="authored" type="button" value="Statistics" style="display: inline" onclick="fade(profileactivity4, this)"/>
+         </div>';
 }
 ?>
 
