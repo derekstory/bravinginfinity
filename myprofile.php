@@ -8,7 +8,7 @@ include 'header.php';
 <?php
 if($_SESSION['signed_in'] == false)
 {
-	echo '<h3 style="color:#fff; margin-top:200px; margin-left:50px">You must be signed in to see post you have made. Would you like to <a href="signin.php">sign-in</a>?</h3>
+	echo '<h3 style="color:#fff; margin-left:50px">You must be signed in to see post you have made. Would you like to <a href="signin.php">sign-in</a>?</h3>
         <h4 style="color:#fff; margin-left: 50px">Not a member yet? <a href="signup.php">Register</a> a new account for free!</h4>';
 }
 else

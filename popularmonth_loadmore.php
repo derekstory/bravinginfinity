@@ -1,14 +1,7 @@
 <?php
 include 'connect.php';
-?>
 
-<div id="contenttable">
-        <table class="width-100 bordered" id="list">
-            <thead class="thead-black">
-                <tr class="breakloop">
-                </tr>
 
-<?php
 if($_GET["page"]){
     $pagenum = $_GET["page"];
 } else {
@@ -38,22 +31,21 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $id = $r["post_id"];
         $userid = $r["user_id"];
 
-echo           '<tbody class="breakloop">
-         <tr>
-              <td class="centered">V' . $views . ' - R' .$replies. ' - S' . $support . '</td>
-              <td class="left" style="width: 750px">
-                  <a href="content.php?id='. $id . ' "class="tablelink" style="color:#FFF; font-size: 1.4em; display: inline; margin-bottom:10px">' . $title . '</a>
-                  <a href="category.php?id='. $category . ' "class="tablelink" style="color:#FFA8A8; font-size:.8em">' . $category . '</a>
-                  <a href="profile.php?id='. $userid . ' "class="tablelink" style="color:#FCFFDB; font-size:1.2em; margin-right: 0px; display: block">' . $author . '</a>
-                  <div style="font-size: .8em, display: inline">' .$date . '</div>
-              </td>
 
-              </tr>';
+        echo '<div style="width:85%; margin-left: auto; margin-right: auto; overflow: hidden">
+                   <h2 align=:left" style="color: #fff; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
+                          <br></br>
+                   <h3 align=:left" style="color: #C9E4FF; font-size: 1.3em; display: inline">' . $category . '</h3>
+                   <h3 style="color: #FFFDC9; font-size: 1.5em; margin-top: 0; display: inline;float: right">V'. $views .' - R'. $replies .' - S' . $support . '</h3>
+<br></br>
+                   <h3 align="left" style="color: #FFF; font-size: 1em; display: inline">by <a href="profile.php?id='. $userid . ' " class="register" style="color:#F59A9A">'. $author .'</a></h3>
+                   <h3 style="color: #fff; font-size: 1em; margin-top: 0;display: inline;float: right">'. $date .'</h3>
+
+                        <hr style="width:100%; border-color:rgba(255,255,255,.1);margin-top: 20px"</hr>
+        </div>';
 
     }
 }
 
 ?>
 
- </tbody>
-        </table>

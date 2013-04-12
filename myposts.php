@@ -14,46 +14,43 @@ $sql = "SELECT * FROM post WHERE post_author = '" . $_SESSION['user_name'] . "'"
 $result = mysql_query($sql);
 $count = mysql_num_rows($result);
 
+
 if($count < 1)
    {
 	echo '<h3 style="color:#fff; margin-top:200px; margin-left:50px">You have not posted anything yet. Get started <a href="post.php">now</a>!</h3>';
    }
    else
    {
-        echo '<h1 align="center" style="color:#fff;margin-top:-70px;margin-bottom:0px;xwidth:100%;height:50px;padding-top:20px">My Posts</h1>
-              <div id="contenttable">
-              <table class="width-100 bordered" id="list">
-              <thead class="thead-black">
-                 <tr class="breakloop">
-                    <th class= "text-centered">Views</th>
-                    <th class= "text-centered">Goal</th>
-                    <th class= "text-centered">Author</th>
-                    <th class= "text-centered">Category</th>
-                    <th class= "text-centered">Thoughts</th>
-                    <th class= "text-centered">Encouragers</th>
-                    <th class= "text-centered">Date</th>
-               </tr>
-               </thread>';
+
 
          while($row = mysql_fetch_assoc($result))
-         {
-         echo   '<tbody class="breakloop">
-                 <tr>
-                    <td class="centered">' . $row['post_views'] . '</td>
-                    <td class="left"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#C4D7FF">' . $row['post_title'] . '</a></td>
-                    <td class="centered"><a href="profile.php?id='. $row['post_author'] . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $row['post_author'] . '</a></td>
-                    <td class="centered"><a href="category.php?id='. $row['post_cat'] . ' "class="tablelink" style="color:#FFA8A8; font-size:1em">' . $row['post_cat'] . '</a></td>
-                    <td class="centered">' . $row['post_replytotal'] . '</td>
-                    <td class="centered">' . $row['post_supporters'] . '</td>
-                    <td class="centered">' . $row['post_date'] . '</td>
-                 </tr>';
+        {
+        $views = $row["post_views"];
+        $title = $row["post_title"];
+        $author = $row["post_author"];
+        $category = $row["post_cat"];
+        $replies = $row["post_replytotal"];
+        $support = $row["post_supporters"];
+        $date = $row["post_date"];
+        $id = $row["post_id"];
+        $userid = $row["user_id"];
+
+        echo '<div style="width:85%; margin-left: auto; margin-right: auto; overflow: hidden">
+                   <h2 align=:left" style="color: #fff; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
+                          <br></br>
+                   <h3 align=:left" style="color: #C9E4FF; font-size: 1.3em; display: inline">' . $category . '</h3>
+                   <h3 style="color: #FFFDC9; font-size: 1.5em; margin-top: 0; display: inline;float: right">V'. $views .' - R'. $replies .' - S' . $support . '</h3>
+<br></br>
+                   <h3 align="left" style="color: #FFF; font-size: 1em; display: inline">by <a href="profile.php?id='. $userid . ' " class="register" style="color:#F59A9A">'. $author .'</a></h3>
+                   <h3 style="color: #fff; font-size: 1em; margin-top: 0;display: inline;float: right">'. $date .'</h3>
+
+                        <hr style="width:100%; border-color:rgba(255,255,255,.1);margin-top: 20px"</hr>
+        </div>';
         }
    }
 }
 ?>
 
-        </tbody>
-        </table>
 <?php
 include 'footer.php';
 ?>

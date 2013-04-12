@@ -11,10 +11,10 @@ include 'header.php';
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
 echo '<form method="post" action="">
-           User Name<input type="text" name="user_name"style="height:50px;text-align:left; width:100%"/><br />
-           Password<input type="PASSWORD" name="user_pass" style="height:50px;text-align:left; width: 100%"/><br />
-           Repeat Password<input type="PASSWORD" name="user_pass_check"style="height:50px;text-align:left;width:100%"/><br />
-           E-mail Address<input type="text" name="user_email" style="height:50px;text-align:left;width:100%" /><br />
+           User Name<input type="text" name="user_name"style="height:50px;text-align:left; width:100%; font-size:1.3em"/><br />
+           Password<input type="PASSWORD" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em"/><br />
+           Repeat Password<input type="PASSWORD" name="user_pass_check"style="height:50px;text-align:left;width:100%; font-size: 1.3em"/><br />
+           E-mail Address<input type="text" name="user_email" style="height:50px;text-align:left;width:100%; font-size:1.3em" /><br />
       <h6><style="color:#fff;display:inline">By clicking "Register", I acknowledge that I have read and agree with the:</h6>
       <h5><a href="termsandconditions.php"><style="color:#fff;display:inline">Terms and Conditions</a></h5>
           <input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>

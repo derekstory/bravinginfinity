@@ -1,21 +1,6 @@
 <?php
 include 'connect.php';
-?>
 
-<div id="contenttable">
-        <table class="width-100 bordered" id="list">
-            <thead class="thead-black">
-                <tr class="breakloop">
-                  <th class= "text-centered">Views</th>
-                    <th class= "text-centered">Title</th>
-                    <th class= "text-centered">Author</th>
-                    <th class= "text-centered">Category</th>
-                    <th class= "text-centered">Thoughts</th>
-                    <th class= "text-centered">Encouragers</th>
-                    <th class= "text-centered">Date</th>
-                </tr>
-
-<?php
 if($_GET["page"]){
     $pagenum = $_GET["page"];
 } else {
@@ -44,20 +29,19 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $id = $r["post_id"];
         $userid = $r["user_id"];
 
-echo           '<tbody class="breakloop">
-                <tr>
-                    <td class="centered" style="width: 20px">' . $views . '</td>
-                    <td class="left" style="width: 40%"><a href="content.php?id='. $id . ' "class="tablelink" style="color:#C4D7FF">' . $title . '</a></td>
-                    <td class="centered" style="width:125px"><a href="profile.php?id='. $userid . ' "class="tablelink" style="color:#FCFFDB; font-size:1em">' . $author . '</a></td>
-                    <td class="centered" style="width:150px"><a href="category.php?id='. $category . ' "class="tablelink" style="color:#FFA8A8; font-size:1em">' . $category . '</a></td>
-                    <td class="centered" style="width: 88px">' . $replies . '</td>
-                    <td class="centered" style="width: 20px">' . $support . '</td>
-                    <td class="centered" style="width: 150px">' . $date . '</td>
-               </tr>';
+
+        echo '<div style="width:85%; margin-left: auto; margin-right: auto; overflow: hidden">
+                   <h2 align=:left" style="color: #fff; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
+                          <br></br>
+                   <h3 align=:left" style="color: #C9E4FF; font-size: 1.3em; display: inline">' . $category . '</h3>
+                   <h3 style="color: #FFFDC9; font-size: 1.5em; margin-top: 0; display: inline;float: right">V'. $views .' - R'. $replies .' - S' . $support . '</h3>
+<br></br>
+                   <h3 align="left" style="color: #FFF; font-size: 1em; display: inline">by <a href="profile.php?id='. $userid . ' " class="register" style="color:#F59A9A">'. $author .'</a></h3>
+                   <h3 style="color: #fff; font-size: 1em; margin-top: 0;display: inline;float: right">'. $date .'</h3>
+
+                        <hr style="width:100%; border-color:rgba(255,255,255,.1);margin-top: 20px"</hr>
+        </div>';
     }
 }
 
 ?>
-
- </tbody>
-        </table>

@@ -25,7 +25,7 @@ $result = mysql_query($sql);
 
         if(!$result)
      {
-        echo '<h1 style="color:#fff, margin-top: 600px">The topic could not be displayed, please try again later.</h1>';
+        echo '<h1 style="color:#000, margin-top: 600px">The topic could not be displayed, please try again later.</h1>';
      }
      else
      {

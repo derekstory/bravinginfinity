@@ -1,14 +1,6 @@
 <?php
 include 'connect.php';
-?>
 
-<div id="contenttable">
-        <table class="width-100 bordered" id="list">
-            <thead class="thead-black">
-                <tr class="breakloop"
-        </tr>
-
-<?php
 if($_GET["page"]){
     $pagenum = $_GET["page"];
 } else {
@@ -55,5 +47,3 @@ echo           '<tbody class="breakloop">
 
 ?>
 
- </tbody>
-        </table>

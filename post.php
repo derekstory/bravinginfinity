@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
          <div class="headerarea">
              <h6 align="Left" style="color:#fff; display: inline">Header</h6>
              <h7 align="Left" style="color:#fff">Limited to 55 characters. Be creative.</h7>
-             <textarea name="post_title" maxLength="55" ></textarea>
+             <textarea name="post_title" maxLength="55""></textarea>
          </div>';
 
         echo '<div class="postarea">
