@@ -17,7 +17,7 @@ $count = mysql_num_rows($result);
 
 if($count < 1)
    {
-	echo '<h3 style="color:#fff; margin-top:200px; margin-left:50px">You have not posted anything yet. Get started <a href="post.php">now</a>!</h3>';
+	echo '<h3 style="color:#fff; margin-left:50px">You have not posted anything yet. Get started <a href="post.php">now</a>!</h3>';
    }
    else
    {
