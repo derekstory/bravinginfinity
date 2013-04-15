@@ -34,7 +34,7 @@ $result = mysql_query($sql);
               </div>';
 
         echo '<div id="postauth">
-                  <h6 align="left">Author: <a href="profile.php?id='. $row['user_id'] . ' "class="tablelink" style="color:#567ABA; font-size:1em">' . $row['post_author'] . '</a></h6>
+                  <h6 align="left">Author: <a href="profile.php?id='. $row['user_id'] . ' "class="register" style="color:#567ABA; font-size:1em">' . $row['post_author'] . '</a></h6>
               </div>';
 
         echo '<div id="postdate">

@@ -1,6 +1,29 @@
 <?php
 include 'connect.php';
-include 'header.php'
+include 'header.php';
+
+$featured = "SELECT *
+
+         FROM
+                   `post`,`users`
+         WHERE
+                   post_id = 22
+         AND
+                   post_author = user_name";
+$feat = mysql_query($featured);
+$featrow = mysql_fetch_assoc($feat);
+
+echo '<div id="sidebar">
+     <h1 style="color: #B5D0FF">Concept</h1>
+     <p>Lorem ipsum dolor sit amet, eam ad virtute propriae eloquentiam, no decore soleat legimus sit. Hinc feugait volutpat sed an, pri nobis iracundia ad. Ad sit cibo paulo, ius no paulo eleifend, modo oblique singulis pro cu. Prodesset omittantur ex pri, vix at iudico reprimique. Verear iisque similique quo at, vel te nisl delenit habemus. Suas purto mea an, vim ad nominavi appareat voluptaria. Possit vocent convenire pri ne. Duis brute assueverit has ex.</p>
+
+     <h1 style="color: #B5D0FF">Featured</h1>
+     <h6><a href="content.php?id=' . $featrow['post_id'] . ' " class="register" style="color:#FFFBC2">'. $featrow['post_title'] .'</a></h6>
+     <h5 style="margin-top: -5px; font-size: 1em">by  <a href="profile.php?id='. $featrow['user_id'] . ' "class="register" style="color:#F59A9A; font-size:1.2em">' . $featrow['post_author'] . '</a></h5>';
+     echo nl2br(htmlentities($featrow['post_content']));
+
+     echo '<input id="support" type="button" value="Support">';
+echo '</div>';
 ?>
 
 

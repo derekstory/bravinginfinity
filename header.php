@@ -20,8 +20,6 @@
             <li><a href="popular.php">Popular</a></li>
             <li><a href="myposts.php">My Posts</a></li>
             <li><a href="myprofile.php">My Profile</a></li>
-            <li><a href="concept.php" id="social">Concept</a></li>
-            <li><a href="faq.php" id="social">FAQ</a></li>
             <li><a href="http://facebook.com" id="social"><img width="20px" src="/Style/images/facebook.png" style="border:0;margin-top:0px"/></a></li>
             <li><a href="https://twitter.com/bravinginfinity" id="social"><img width="20px" src="/Style/images/twitter.png" style="border:0;margin-top:0px"/></a></li>
        </ul>

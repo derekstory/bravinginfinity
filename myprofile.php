@@ -8,7 +8,7 @@ include 'header.php';
 <?php
 if($_SESSION['signed_in'] == false)
 {
-	echo '<h3 style="color:#fff; margin-left:50px">You must be signed in to see post you have made. Would you like to <a href="signin.php">sign-in</a>?</h3>
+	echo '<h3 style="color:#fff; margin-left:50px">You must be signed in to see posts you have made. Would you like to <a href="signin.php">sign-in</a>?</h3>
         <h4 style="color:#fff; margin-left: 50px">Not a member yet? <a href="signup.php">Register</a> a new account for free!</h4>';
 }
 else
@@ -61,7 +61,7 @@ if($postnum < 1)
 {
         while($row = mysql_fetch_assoc($result))
         {
-        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' . $row['post_title'] . '</a></h5>
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#567ABA">' . $row['post_title'] . '</a></h5>
          <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
@@ -84,7 +84,7 @@ if($postnum < 1)
 {
         while($row = mysql_fetch_assoc($result))
         {
-        echo '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#A6D690">' . $row['post_title'] . '</a></h5>
+        echo '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#A6D690">' . $row['post_title'] . '</a></h5>
              <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
@@ -107,7 +107,7 @@ if($postnum < 1)
 {
         while($row = mysql_fetch_assoc($result))
         {
-        echo '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' . $row['post_title'] . '</a></h5>
+        echo '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#E88080">' . $row['post_title'] . '</a></h5>
              <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }

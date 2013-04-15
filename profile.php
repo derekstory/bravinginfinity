@@ -64,7 +64,7 @@ if($postnum < 1)
 {
         while($row = mysql_fetch_assoc($result))
         {
-        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#567ABA">' .   $row['post_title'] . '</a></h5>
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#567ABA">' .   $row['post_title'] . '</a></h5>
                 <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
@@ -94,7 +94,7 @@ if($postnum < 1)
 {
         while($row = mysql_fetch_assoc($result))
         {
-        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#A6D690">' .   $row['post_title'] . '</a></h5>
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#A6D690">' .   $row['post_title'] . '</a></h5>
                  <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
@@ -126,7 +126,7 @@ if($postnum < 1)
 {
         while($row = mysql_fetch_assoc($result))
         {
-        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="tablelink" style="color:#E88080">' .   $row['post_title'] . '</a></h5>
+        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#E88080">' .   $row['post_title'] . '</a></h5>
                  <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
         }
 }
