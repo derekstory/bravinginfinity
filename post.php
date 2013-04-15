@@ -2,6 +2,9 @@
 include 'connect.php';
 include 'header.php';
 
+$post_title = $_POST["post_title"];
+$q = mysql_query("SELECT post_title FROM post WHERE post_title = '$post_title'");
+
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
         echo'<div id="contentpost">
@@ -55,45 +58,49 @@ else
 {
         if($_SESSION['signed_in'] == false)
         {
-            echo '<h2 style="color:#fff; margin-top:150px; margin-left: 50px">You must <a href="signin.php"> sign in</a> to post a new topic.</h2>';
+            echo '<h2 style="color:#fff; margin-left: 50px">You must <a href="signin.php"> sign in</a> to post a new topic.</h2>';
         }
         else
         {
-            $errors = array();
-
+        $errors = array();
+            if(mysql_num_rows($q) != 0)
+            {
+                echo '<h4 style="color:#fff; margin-left: 50px">A post with this title already exist. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                $errors[] = die;
+            }
             if(empty($_POST['post_title']))
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You must enter the title of your post in the header area. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must enter the title of your post in the header area. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(strlen($_POST['post_title']) > 55)
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">The header area can only contain 55 characters.<a href="post.php">Try again</a></h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">The header area can only contain 55 characters.<a href="post.php">Try again</a></h4>';
                 $errors[] = die;
             }
             if(empty($_POST['post_content']))
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You must fill out the content section. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must fill out the content section. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(strlen($_POST['post_content']) < 200)
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">The content section must contain at least 200 characters. <a href="post.php">Try again</a> and put some more thought into it!</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">The content section must contain at least 200 characters. <a href="post.php">Try again</a> and put some more thought into it!</h4>';
                 $errors[] = die;
             }
             if(empty($_POST['post_cat']))
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You must choose a category from the dropdown menu. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must choose a category from the dropdown menu. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(empty($_POST['post_reason']))
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You must choose a reason for posting from the dropdown menu. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must choose a reason for posting from the dropdown menu. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(strlen($_POST['post_keywords']) > 40)
             {
-                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You can only have 40 characters in the keywords section. Choose them carefully. <a href="post.php">Try again</a></h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You can only have 40 characters in the keywords section. Choose them carefully. <a href="post.php">Try again</a></h4>';
                 $errors[] = die;
             }
             else
@@ -120,7 +127,7 @@ else
 			$result = mysql_query($sql);
 			if(!$result)
 			{
-                                echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">An error has occured. <a href="post.php">Please try again</a></h4>';
+                                echo '<h4 align="center" style="color:#fff">An error has occured. <a href="post.php">Please try again</a></h4>';
 			}
                         else
                         {
@@ -128,7 +135,7 @@ else
                                 $sql = "COMMIT";
 		               	$result = mysql_query($sql);
 
-				echo '<h4 style="color:#fff; margin-top:150px; margin-left: 50px">You have succesfully created <a href="content.php?id='. $post_id . '">your new topic</a></h4>.';
+				echo '<h4 align="center" style="color:#fff">You have succesfully created <a href="content.php?id='. $post_id . '">your new topic.</a></h4>.';
 			}
               }
         }

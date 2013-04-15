@@ -8,6 +8,9 @@ include 'header.php';
 <h1 style="color:#fff">-Register-</h1>
 
 <?php
+$user_name = $_POST["user_name"];
+$q = mysql_query("SELECT user_name FROM users WHERE user_name = '$user_name'");
+
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
 echo '<form method="post" action="">
@@ -39,6 +42,10 @@ else
                {
                         $errors[] = 'The username cannot be longer than 30 characters.';
                }
+        }
+        if(mysql_num_rows($q) != 0)
+        {
+                        $errors[] = 'The username already already exist.  Please try again with a different username.';
         }
  	if(isset($_POST['user_pass']))
         {
@@ -82,7 +89,7 @@ else
 		$result = mysql_query($sql);
                 if(!$result)
                 {
-                        echo 'The username already exist, please <a href="signup.php">try again</a>.';
+                        echo 'Something terrible just happened! Please <a href="signup.php">try again</a>.';
                 }
                 else
                 {
