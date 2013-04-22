@@ -5,9 +5,11 @@ include 'header.php';
 $sql = "SELECT *
 
         FROM
-                `post`
+                  `post`
         WHERE
-                   post_id = " . mysql_real_escape_string($_GET['id']). " && post_author = '" . $_SESSION['user_name'] . "'";
+                   post_id = " . mysql_real_escape_string($_GET['id']). " && post_author = '" . $_SESSION['user_name'] . "'
+        OR
+                   post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
 
 $result = mysql_query($sql);
 

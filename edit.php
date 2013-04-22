@@ -16,7 +16,9 @@ $sql =            "SELECT *
                   FROM
                        `post`
                   WHERE
-                        post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author";
+                        post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author
+                  OR
+                        post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
 
 $q = mysql_query($sql);
 
@@ -78,37 +80,37 @@ else
             $errors = array();
             if(empty($_POST['post_title']))
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">You must enter the title of your post in the header area. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must enter the title of your post in the header area. <a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(strlen($_POST['post_title']) > 55)
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">The header area can only contain 55 characters.<a href="post.php">Try again</a></h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">The header area can only contain 55 characters.<a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a></h4>';
                 $errors[] = die;
             }
             if(empty($_POST['post_content']))
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">You must fill out the content section. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must fill out the content section. <a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(strlen($_POST['post_content']) < 200)
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">The content section must contain at least 200 characters. <a href="post.php">Try again</a> and put some more thought into it!</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">The content section must contain at least 200 characters. <a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a> and put some more thought into it!</h4>';
                 $errors[] = die;
             }
             if(empty($_POST['post_cat']))
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">You must choose a category from the dropdown menu. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must choose a category from the dropdown menu. <a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(empty($_POST['post_reason']))
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">You must choose a reason for posting from the dropdown menu. <a href="post.php">Try again</a> with all of the fields filled in.</h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You must choose a reason for posting from the dropdown menu. <a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a> with all of the fields filled in.</h4>';
                 $errors[] = die;
             }
             if(strlen($_POST['post_keywords']) > 40)
             {
-                echo '<h4 style="color:#fff; margin-left: 50px">You can only have 40 characters in the keywords section. Choose them carefully. <a href="post.php">Try again</a></h4>';
+                echo '<h4 style="color:#fff; margin-left: 50px">You can only have 40 characters in the keywords section. Choose them carefully. <a href="edit.php?id=' . mysql_real_escape_string($_GET['id']). '">Try again</a></h4>';
                 $errors[] = die;
             }
             else

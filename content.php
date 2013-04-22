@@ -14,7 +14,10 @@ $editsql = "SELECT *
         FROM
                 `post` , `users`
         WHERE
-                   post_id = " . mysql_real_escape_string($_GET['id']). " && post_author = '" . $_SESSION['user_name'] . "'";
+                post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author
+        OR
+                post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
+
 
 $editresult = mysql_query($editsql);
 
@@ -23,11 +26,12 @@ $editresult = mysql_query($editsql);
         if(mysql_num_rows($editresult) > 0)
         {
                echo '<div style="margin-bottom: -30px; margin-right: 200px">
-                     <h3 align="right""><a href="edit.php?id=' . $row['post_id'] . '" style="color: #577DC2"class="register">EDIT this listing</a></h1>
-                     <h3 align="right"><a href="deleteconfirm.php?id=' . $row['post_id'] . '" style="color: #577DC2" class="register">DELETE this listing</a></h1>
+                     <h3 align="right""><a href="edit.php?id=' . $row['post_id'] . '" style="color: #577DC2"class="register">EDIT this post.</a></h1>
+                     <h3 align="right"><a href="deleteconfirm.php?id=' . $row['post_id'] . '" style="color: #577DC2" class="register">DELETE this post.</a></h1>
                      </div>';
         }
 ?>
+
 
 <?php
 $sql = "SELECT *
