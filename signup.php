@@ -34,7 +34,7 @@ else
                {
                $errors[] = die('The username field must not be empty. Please <a href="signup.php">try again</a>.');
                }
-               if(!ctype_alnum($_POST['user_name']))
+               if(!preg_match("/^[a-zA-Z0-9_]./", $user_name))
                {
 			$errors[] = 'The username can only contain letters and digits.';
                }
