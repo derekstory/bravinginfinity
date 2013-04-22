@@ -7,7 +7,7 @@ $featured = "SELECT *
          FROM
                    `post`,`users`
          WHERE
-                   post_id = 22
+                   post_id = 44
          AND
                    post_author = user_name";
 $feat = mysql_query($featured);

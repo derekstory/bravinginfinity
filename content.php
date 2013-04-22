@@ -6,10 +6,30 @@ $sql = "UPDATE post SET post_views = post_views +1
          WHERE post_id = " . mysql_real_escape_string($_GET['id']). "
          AND post_author != '" . ($_SESSION['user_name']) . "'";
 $result = mysql_query($sql);
-while($row = mysql_fetch_assoc($result))
+
 ?>
 <?php
+$editsql = "SELECT *
 
+        FROM
+                `post` , `users`
+        WHERE
+                   post_id = " . mysql_real_escape_string($_GET['id']). " && post_author = '" . $_SESSION['user_name'] . "'";
+
+$editresult = mysql_query($editsql);
+
+
+        $row = mysql_fetch_assoc($editresult);
+        if(mysql_num_rows($editresult) > 0)
+        {
+               echo '<div style="margin-bottom: -30px; margin-right: 200px">
+                     <h3 align="right""><a href="edit.php?id=' . $row['post_id'] . '" style="color: #577DC2"class="register">EDIT this listing</a></h1>
+                     <h3 align="right"><a href="deleteconfirm.php?id=' . $row['post_id'] . '" style="color: #577DC2" class="register">DELETE this listing</a></h1>
+                     </div>';
+        }
+?>
+
+<?php
 $sql = "SELECT *
 
          FROM

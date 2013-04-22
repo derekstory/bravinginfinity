@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include 'connect.php';
 include 'header.php';
 
@@ -14,8 +15,9 @@ if($_SESSION['signed_in'] == true)
 }
 else
 {
-	echo '<h3 style="color:#fff; margin-top:200px; margin-left:50px">You are not signed in. Would you like to <a href="signin.php">sign-in</a>?</h3>';
+	echo '<h3 style="color:#000; margin-top:200px; margin-left:50px">You are not signed in. Would you like to <a href="signin.php">sign-in</a>?</h3>';
 }
 
+ob_end_flush();
 include 'footer.php';
 ?>
