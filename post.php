@@ -2,8 +2,6 @@
 include 'connect.php';
 include 'header.php';
 
-$post_title = $_POST["post_title"];
-$q = mysql_query("SELECT post_title FROM post WHERE post_title = '$post_title'");
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {

@@ -181,7 +181,7 @@ function fade(div_id, button)
        		$('#profileactivity').hide('slow');
        		$('#profileactivity2').show('slow');
        		$('#profileactivity3').hide('slow');
-       		$('#profilesactivity4').hide('slow');
+       		$('#profileactivity4').hide('slow');
                 }
 	if(button.value == 'Support Given'){
        		$('#profileactivity3').show('slow');

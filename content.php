@@ -1,14 +1,14 @@
 <?php
 include 'connect.php';
 include 'header.php';
+?>
 
+<?php
 $sql = "UPDATE post SET post_views = post_views +1
          WHERE post_id = " . mysql_real_escape_string($_GET['id']). "
          AND post_author != '" . ($_SESSION['user_name']) . "'";
 $result = mysql_query($sql);
 
-?>
-<?php
 $editsql = "SELECT *
 
         FROM
@@ -18,9 +18,7 @@ $editsql = "SELECT *
         OR
                 post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
 
-
 $editresult = mysql_query($editsql);
-
 
         $row = mysql_fetch_assoc($editresult);
         if(mysql_num_rows($editresult) > 0)
@@ -32,9 +30,8 @@ $editresult = mysql_query($editsql);
         }
 ?>
 
-
 <?php
-$sql = "SELECT *
+$sql2 = "SELECT *
 
          FROM
                    `post`,`users`
@@ -43,11 +40,12 @@ $sql = "SELECT *
          AND
                    post_author = user_name";
 
-$result = mysql_query($sql);
-{
-        while($row = mysql_fetch_assoc($result))
 
-        if(!$result)
+$result2 = mysql_query($sql2);
+{
+        while($row = mysql_fetch_assoc($result2))
+
+        if(!$result2)
      {
         echo '<h1 style="color:#000, margin-top: 600px">The topic could not be displayed, please try again later.</h1>';
      }
@@ -69,73 +67,168 @@ $result = mysql_query($sql);
         echo nl2br(htmlentities($row['post_content']));
         echo '</div>';
 
-        echo '<form>
-                <hr style="width:80%; margin-top:30px"></hr>
+
+             echo '<hr style="width:80%; margin-top:30px"></hr>
              <div id="contentreply">
-                <h1 align="left" style="color:#fff">Community</h1>
+                <h1 align="left" id ="community" style="color:#fff">Community</h1>
 
              <div class="reply">
                   <h6 align="Left" style="color:#fff; display: block; margin-left: 210px;margin-top:-50px">Views: ' . $row['post_views'] . '</h6>
                   <h6 align="Left" style="color:#fff; display: block;margin-top: -5px; margin-bottom: 30px;margin-left:210px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
                   <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
                   <h7 align="Left" style="color:#fff">Bring something new to the table.</h7>';
-    }
+        }
 }
 ?>
-                 <textarea id="txt"></textarea>
-        </div>
 
-        <h6 align="Left" style="color:#fff; display: inline">Contribution</h6>
-             <select style="display:inline">
-             <option>Reason One</option>
-             <option>Reason Two</option>
-             <option>Reason Three</option>
-             <option>Reason Four</option>
-             <option>Reason Five</option>
-             <option>Reason Six</option>
-             <option>Reason Seven</option>
-        </select>
+<?php
 
-        <div class="submit">
-             <p class="submit"><input type="submit" value="Submit" style="height:25px;width:100px;background:rgba(255,255,255,.9);margin-top: 20px;color:#001D73; display:block;margin-left:0px"/></p>
-        </form>
+if($_SERVER['REQUEST_METHOD'] != 'POST')
+{
 
-        <h3 align="Left" style="color:#fff; display: block;margin-top:30px">Replies (4)</h3>
-             <h5 align="Left" style="color:#fff; display:inline">jerry.seinfield</h5>
-                 <h7 align="Left" style="color:#FFA8A8; display: inline">Encourager</h7>
-                 <h6 align="Left" style="color:#fff; display: block;margin-top:0px">2/28/12</h6>
-                     <p style="color:#FFA8A8">Lorem ipsum dolor sit amet, soluta facilisis eam ei, at essent petentium nec. Veniam tantas oporteat duo et, pro ad libris vocibus reprehendunt. Alterum impedit intellegat duo ad. Elit delenit mel no. Ut mea democritum definitionem, cu prima quando recteque nam. Quod veniam ornatus nec cu, ne ius delenit contentiones.</p>
+     echo '<form method="post" action="content.php?id=' . mysql_real_escape_string($_GET['id']). '#community">
+     <textarea name="replies_content" maxLength="2000"></textarea>
+     </div>
 
-                     <p style="color:#FFA8A8">Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.</p>
+          <h6 align="Left" style="color:#fff; display: inline">Contribution</h6>
+          <select name="replies_contribution" style="display:inline">
+          <option>General</option>
+          <option>Research</option>
+          <option>Encouragement</option>
+          <option>Implementation</option>
+          <option>Question</option>
+     </select>';
+   {
+   if($_SESSION['signed_in'] == false)
+                {
+            echo '<h4 style="color:#fff">You must <a href="signin.php"> sign in</a> to post a new topic.</h4>';
+                }
+   }
+   echo '<input type="submit" class="button" value="Post Reply" />
+     </form>';
 
+}
+     else
+{
+                if($_SESSION['signed_in'] == false)
+                {
+                      echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=content.php?id=' . mysql_real_escape_string($_GET['id']). '"';
+                }
+                else
+                {
+                $errors = array();
+                if(empty($_POST['replies_content']))
+                  {
+                      echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=content.php?id=' . mysql_real_escape_string($_GET['id']). '"';
+                  }
+                  else
+                  {
+                  $replies = "INSERT INTO
+                                                          replies(replies_author,
+                                                                  replies_postid,
+                                                                  replies_content,
+                                                                  replies_contribution,
+                                                                  replies_rating)
+                              VALUES(                             '" . $_SESSION['user_name'] . "',
+                                                                  '" . mysql_real_escape_string($_GET['id']). "',
+                                                                  '" . mysql_real_escape_string($_POST['replies_content']) ."',
+                                                                  '" . mysql_real_escape_string($_POST['replies_contribution']) ."',
+                                                                  0)";
+                   $repliesresult = mysql_query($replies);
+                   if(!$repliesresult)
+                      {
+                         echo '<h4 align="center" style="color:#fff">An error has occured. <a href="content.php?id=">Please try again</a></h4>';
+                      }
+                      else
+                      {
+                      $replies_postid = mysql_insert_id();
+                      $replies = "COMMIT";
+                      $repliesresult = mysql_query($replies);
+                      echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=content.php?id=' . mysql_real_escape_string($_GET['id']). '">';
 
-             <h5 align="Left" style="color:#fff; display: inline">johnnybravo</h5>
-                 <h7 align="Left" style="color:#A8B0FF; display: inline">Researcher</h7>
-                 <h6 align="Left" style="color:#fff; display: block;margin-top:0px">2/28/12</h6>
-                     <p style="color:#A8B0FF">Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.</p>
+                      }
+                   }
 
-             <h5 align="Left" style="color:#fff; display:inline">jerry.seinfield</h5>
-                 <h7 align="Left" style="color:#FFA8A8; display: inline">Encourager</h7>
-                     <h6 align="Left" style="color:#fff; display: block;margin-top:0px">2/28/12</h6>
-                     <p style="color:#FFA8A8">Lorem ipsum dolor sit amet, soluta facilisis eam ei, at essent petentium nec. Veniam tantas oporteat duo et, pro ad libris vocibus reprehendunt. Alterum impedit intellegat duo ad. Elit delenit mel no. Ut mea democritum definitionem, cu prima quando recteque nam. Quod veniam ornatus nec cu, ne ius delenit contentiones.</p>
+                }
+}
+?>
 
-<p style="color:#FFA8A8">Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.</p>
+<?php
+$comments = "SELECT *
 
+             FROM
+                        `replies`,`users`
 
-             <h5 align="Left" style="color:#fff; display: inline">johnnybravo</h5>
-                 <h7 align="Left" style="color:#A8B0FF; display: inline">Researcher</h7>
-                 <h6 align="Left" style="color:#fff; display: block;margin-top:0px">2/28/12</h6>
-                     <p style="color:#A8B0FF">Eu cetero tractatos persecuti vel, velit possim ornatus per te. Ex pri nibh aperiri euripidis, te ius prima fuisset mnesarchum. Qui no molestie rationibus omittantur. Lorem tritani accusam his ei, per eu doming nusquam sapientem, quo ei tollit consulatu interpretaris. Usu ullum virtute meliore id, postea incorrupte scribentur sed ut, pri cu etiam urbanitas.</p>
+             WHERE
+                        replies_postid =  " . mysql_real_escape_string($_GET['id']). "
+             AND
+                        replies_author = user_name
+             ORDER BY
+                        replies_date
+             DESC LIMIT
+                        0, 1000";
 
+$res = mysql_query($comments);
+$total = mysql_num_rows($res);
+echo '<h3 align="Left" id="replies" style="color:#fff; display: block;margin-top:30px">Replies ('.$total.')</h3>';
+{
+     if($total < 1)
+     {
+        echo '<h1 style="color:#fff">There are currently no comments for this topic.</h1>';
+     }
+     else
+     while($row = mysql_fetch_assoc($res))
+     {
+     $contribution = $row['replies_contribution'];
 
-
-           </form>
-
-
-
-       </div>
-
-
+         if($contribution == 'General')
+         {
+      echo '<h5 align="Left" style="color:#fff; display:inline"><a href="profile.php?id='. $row['user_id'] . ' " class="register" style="color:#F59A9A">' . $row['replies_author'] .'</a></h5>
+      <h7 align="Left" style="color:#C7EEFF; display: inline">' . $row['replies_contribution'] . '</h7>
+      <h6 align="Left" style="color:#fff; display: block;margin-top:0px">' . $row['replies_date'] . '</h6>';
+      echo '<div style="color:#C7EEFF; margin-bottom: 30px">';
+            echo nl2br(htmlentities($row['replies_content']));
+      echo '</div>';
+         }
+         if($contribution == 'Research')
+         {
+      echo '<h5 align="Left" style="color:#fff; display:inline"><a href="profile.php?id='. $row['user_id'] . ' " class="register" style="color:#F59A9A">' . $row['replies_author'] .'</a></h5>
+      <h7 align="Left" style="color:#E2C7FF; display: inline">' . $row['replies_contribution'] . '</h7>
+      <h6 align="Left" style="color:#fff; display: block;margin-top:0px">' . $row['replies_date'] . '</h6>';
+      echo '<div style="color:#E2C7FF; margin-bottom: 30px">';
+            echo nl2br(htmlentities($row['replies_content']));
+      echo '</div>';
+         }
+         if($contribution == 'Encouragement')
+         {
+      echo '<h5 align="Left" style="color:#fff; display:inline"><a href="profile.php?id='. $row['user_id'] . ' " class="register" style="color:#F59A9A">' . $row['replies_author'] .'</a></h5>
+      <h7 align="Left" style="color:#FFC7D5; display: inline">' . $row['replies_contribution'] . '</h7>
+      <h6 align="Left" style="color:#fff; display: block;margin-top:0px">' . $row['replies_date'] . '</h6>';
+      echo '<div style="color:#FFC7D5; margin-bottom: 30px">';
+            echo nl2br(htmlentities($row['replies_content']));
+      echo '</div>';
+         }
+         if($contribution == 'Implementation')
+         {
+      echo '<h5 align="Left" style="color:#fff; display:inline"><a href="profile.php?id='. $row['user_id'] . ' " class="register" style="color:#F59A9A">' . $row['replies_author'] .'</a></h5>
+      <h7 align="Left" style="color:#C7FFC7; display: inline">' . $row['replies_contribution'] . '</h7>
+      <h6 align="Left" style="color:#fff; display: block;margin-top:0px">' . $row['replies_date'] . '</h6>';
+      echo '<div style="color:#C7FFC7; margin-bottom: 30px">';
+            echo nl2br(htmlentities($row['replies_content']));
+      echo '</div>';
+         }
+         if($contribution == 'Question')
+         {
+      echo '<h5 align="Left" style="color:#fff; display:inline"><a href="profile.php?id='. $row['user_id'] . ' " class="register" style="color:#F59A9A">' . $row['replies_author'] .'</a></h5>
+      <h7 align="Left" style="color:#F8FFC7; display: inline">' . $row['replies_contribution'] . '</h7>
+      <h6 align="Left" style="color:#fff; display: block;margin-top:0px">' . $row['replies_date'] . '</h6>';
+      echo '<div style="color:#F8FFC7; margin-bottom: 30px">';
+            echo nl2br(htmlentities($row['replies_content']));
+      echo '</div>';
+         }
+     }
+}
+?>
 
 <?php
 include 'footer.php';

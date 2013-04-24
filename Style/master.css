@@ -271,7 +271,33 @@ cursor: pointer;
 font: 100% Century Gothic;
 font-size: 2em;
 }
-
+.button {
+margin-left: 0px;
+width: 120px;
+height: 30px;
+background: rgba(0,0,0,0);
+margin-top: 30px;
+border: 1px #fff solid;
+border-radius: 20px;
+color: #fff;
+font: 100% Century Gothic;
+font-size: 1.3em;
+}
+.button:hover {
+background: rgba(255,255,255,.1);
+border: 1px #12495d solid;
+color: #fff;
+cursor: pointer;
+font: 100% Century Gothic;
+font-size: 1.3em;
+}
+.button:active {
+background: rgba(255,255,255,.1);
+border: 1px #12495d solid;
+color: #000;
+font: 100% Century Gothic;
+font-size: 1.3em;
+}
 /*---Profile---*/
 
 #profbutton {

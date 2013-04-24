@@ -30,13 +30,14 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $date = $r["post_date"];
         $id = $r["post_id"];
         $userid = $r["user_id"];
-
+        $replies = mysql_query("SELECT * FROM `replies` WHERE replies_postid = ".$id."");
+        $repliestotal = (mysql_num_rows($replies));
 
         echo '<div class="toc">
                    <h2 align=:left" style="color: #fff; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
                           <br></br>
                    <h3 align=:left" style="color: #C9E4FF; font-size: 1.3em; display: inline">' . $category . '</h3>
-                   <h3 style="color: #FFFDC9; font-size: 1.5em; margin-top: 0; display: inline;float: right">V'. $views .' - R'. $replies .' - S' . $support . '</h3>
+                   <h3 style="color: #FFFDC9; font-size: 1.5em; margin-top: 0; display: inline;float: right">V'. $views .' - R'. $repliestotal .' - S' . $support . '</h3>
 <br></br>
                    <h3 align="left" style="color: #FFF; font-size: 1.3em; display: inline">by <a href="profile.php?idbb='. $userid . ' " class="register" style="color:#F59A9A">'. $author .'</a></h3>
                    <h3 style="color: #fff; font-size: 1.3em; margin-top: 0;display: inline;float: right">'. $date .'</h3>
