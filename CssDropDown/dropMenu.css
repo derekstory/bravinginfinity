@@ -1,0 +1,35 @@
+/*---- CROSS BROWSER DROPDOWN MENU ----*/
+ul#nav {margin: 0 0 0 50px; font-family:Verdana; font-size:15px}
+ul.drop a { display:block; color: #fff; text-decoration: none;}
+ul.drop, ul.drop li, ul.drop ul { list-style: none; margin: 0; padding: 0; border: 1px /* solid #000 */; 
+background: url("../images/nav_bg.png") repeat-x scroll 0 0 transparent; 
+color: #fff; }
+ul.drop { position: relative; z-index: 597; float: left; }
+ul.drop li { float: left; line-height: 1.9em; vertical-align: middle; zoom: 1; padding: 5px 10px; }
+ul.drop li.hover, ul.drop li:hover { position: relative; z-index: 599; cursor: pointer; 
+/* background: #1e7c9a;  */
+/* background: yellow;	 */
+}
+ul.drop ul { visibility: hidden; position: absolute; top: 85%; left: 0; z-index: 598; width: 195px; background: #555; border: 1px solid #fff; }
+ul.drop ul li { float: none; }
+ul.drop ul ul { top: -2px; left: 100%; }
+ul.drop li:hover > ul { visibility: visible }
+.myMenu{line-height: 50px; color:white; vertical-align:baseline; padding-bottom:0px; margin-right:5px;}
+
+#mnuSrch{width:170px; height:25px; margin-left:5px}
+
+input[type=text]:focus{
+	outline:none;
+	background-color: #ffffe9;
+}
+form input[type=image]{
+	height:20px;
+	margin-top:10px;
+}
+
+#SrchBox{
+	display:inline-block;
+	background-color:white;
+	height: 40px;
+	width: 210px;
+}

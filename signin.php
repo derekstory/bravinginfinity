@@ -16,8 +16,8 @@ else
 	if($_SERVER['REQUEST_METHOD'] != 'POST')
         {
                 echo '<form method="post" action="">
-                      User Name: <input type="text" name="user_name" style="height:50px;text-align:left; width:100%; font-size: 1.3em" /><br />
-                      Password: <input type="password" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em"/><br />
+                      User Name: <input type="text" name="user_name" style="height:50px;text-align:left; width:100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none" /><br />
+                      Password: <input type="password" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em;background: rgba(255,255,255,.05); color: #fff; border: none"/><br />
                       <input type="submit" value="Sign-In" style="height:25px;width:100px;background:#fff;color:#000;display:block" /><br />
                       <h4 style="color:#fff">Not a member yet? <a href="signup.php">Register</a> a new account for free!</h4>
                 </form>';

@@ -63,7 +63,7 @@
 ?>
 
 </div>
-"<a href="index.php"><img src="/Style/images/header2.png" id="logo"/></a>
+<a href="index.php"><img src="/Style/images/header2.png" id="logo"/></a>
 
 
 

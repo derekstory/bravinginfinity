@@ -59,11 +59,12 @@ body {
     color: #000;
     text-decoration: underline;
 }
-#logo {
+#logo2 {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -30px;
+    margin-top: auto;
+    float: right;
 }
 
 @media only screen and (min-width: 900px) {
@@ -166,15 +167,14 @@ body {
 /* =Index
 -----------------------------------------------------------------------------*/
 
-@media only screen and (min-width: 750px){
+
 .index {
     width: auto;
     margin-left: 350px;
     margin-right: 50px;
-    overflow: hidden;
     font-size: .8em;
     }
-}
+
 @media only screen and (max-width: 750px){
 .index {
     width: 90%;
@@ -186,6 +186,7 @@ body {
 }
 .toc {
     width: 90%;
+    margin-top: -20px;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -200,7 +201,7 @@ body {
 	width: 300px;
 	float: left;
 	margin-left: 5px;
-        margin-top: -25px;
+        margin-top: -20px;
         padding-right: 10px;
         padding-left: 10px;
         }
@@ -211,17 +212,7 @@ body {
        }
 }
 
-input:focus, textarea:focus {
-    border-radius: 1px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) inset;
-}
-input {
-    display: block;
-    color: #fff;
-    background: rgba(255,255,255,.05);
-    border: none;
-    text-align: center;
-}
+
 
 /*---Load More Button---*/
 #loadmore {
@@ -262,6 +253,7 @@ border-radius: 20px;
 color: #fff;
 font: 100% Century Gothic;
 font-size: 2em;
+display: block;
 }
 #support:hover {
 background: rgba(255,255,255,.1);

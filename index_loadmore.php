@@ -1,7 +1,5 @@
 <?php
 include 'connect.php';
-
-
 ?>
 <?php
 
@@ -39,6 +37,7 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $repliestotal = (mysql_num_rows($replies));
 
         echo '<div class="index">
+
                    <h2 align=:left" style="color: #fff; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
                           <br></br>
                    <h3 align=:left" style="color: #C9E4FF; font-size: 1.3em; display: inline">' . $category . '</h3>
@@ -46,8 +45,8 @@ if($pagenum>=1&&$pagenum<=$total_pages)
 <br></br>
                    <h3 align="left" style="color: #FFF; font-size: 1.3em; display: inline">by <a href="profile.php?id='. $userid . ' " class="register" style="color:#F59A9A">'. $author .'</a></h3>
                    <h3 style="color: #fff; font-size: 1.3em; margin-top: 0;display: inline;float: right">'. $date .'</h3>
+                        <hr style="width:100%; padding-top: -5px; border-color:rgba(255,255,255,.1);"</hr>
 
-                        <hr style="width:100%; border-color:rgba(255,255,255,.1);margin-top: 20px"</hr>
         </div>';
     }
 }

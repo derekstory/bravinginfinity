@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-include 'header.php';
+include 'CssDropDown/Menu1/dropMenu.php';
 
 $featured = "SELECT *
 
@@ -13,7 +13,7 @@ $featured = "SELECT *
 $feat = mysql_query($featured);
 $featrow = mysql_fetch_assoc($feat);
 
-echo '<div id="sidebar">
+  echo '<div id="sidebar">
      <h1 style="color: #B5D0FF">Concept</h1>
      <p>Lorem ipsum dolor sit amet, eam ad virtute propriae eloquentiam, no decore soleat legimus sit. Hinc feugait volutpat sed an, pri nobis iracundia ad. Ad sit cibo paulo, ius no paulo eleifend, modo oblique singulis pro cu. Prodesset omittantur ex pri, vix at iudico reprimique. Verear iisque similique quo at, vel te nisl delenit habemus. Suas purto mea an, vim ad nominavi appareat voluptaria. Possit vocent convenire pri ne. Duis brute assueverit has ex.</p>
 
@@ -23,7 +23,8 @@ echo '<div id="sidebar">
      echo nl2br(htmlentities($featrow['post_content']));
 
      echo '<input id="support" type="button" value="Support">';
-echo '</div>';
+
+  echo '</div>';
 ?>
 
 
@@ -58,7 +59,10 @@ $("#content").append(data);
 <?php
 
 echo '<div id="content"></div>
-      <input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'">';
+      <div class="index">
+         <input id="loadmore" class="index" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'">
+      </div>';
+
 ?>
 
 <?php
