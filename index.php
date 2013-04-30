@@ -2,6 +2,8 @@
 include 'connect.php';
 include 'CssDropDown/Menu1/dropMenu.php';
 
+echo '<a href="index.php"><img src="/Style/images/header2.png" id="logo2"/></a>';
+
 $featured = "SELECT *
 
          FROM

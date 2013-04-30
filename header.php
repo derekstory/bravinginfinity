@@ -63,15 +63,13 @@
 ?>
 
 </div>
-<a href="index.php"><img src="/Style/images/header2.png" id="logo"/></a>
 
 
 
 
 
-<form method="get" action="/search" id="search">
-       <input name="q" type="text" placeholder="Search Keywords..." />
-     </form>
+
+
 
 
 

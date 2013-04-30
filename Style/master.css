@@ -35,35 +35,22 @@ body {
     height: 70px;
     }
 }
-
-#search input[type="text"] {
-    display: none;
-    background: #fff;
-    border: 0 none;
-    font: bold 12px Arial,Helvetica,Sans-serif;
-    color: #000;
-    width: 200px;
-    height: 20px;
-    text-align: left;
-    border-radius: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.9) inset;
-    -webkit-transition: all 0.7s ease 0s;
-    -moz-transition: all 0.7s ease 0s;
-    -o-transition: all 0.7s ease 0s;
-}
-.register:link {
+.register {
     text-decoration: none;
-}
+    transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
 
+}
 .register:hover {
-    color: #000;
-    text-decoration: underline;
+    opacity: 0.2;
 }
 #logo2 {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    margin-top: -30px;
+    margin-bottom: 20px;
     float: right;
 }
 
@@ -184,6 +171,26 @@ body {
     font-size: .8em;
     }
 }
+.prevContent {
+color: #fff;
+width:100%;
+height: 0;
+overflow:hidden;
+left: 0;
+font-size: 1.5em;
+top: 30px;
+-webkit-transition: all .8s ease;
+-moz-transition: all .8s ease;
+-ms-transition: all .8s ease;
+-o-transition: all .8s ease;
+transition: all .8s ease;
+}
+.preview:hover > .prevContent {
+display:block;
+left:0px;
+height:150px;
+text-overflow: ellipsis;
+}
 .toc {
     width: 90%;
     margin-top: -20px;
@@ -226,6 +233,9 @@ border-radius: 20px;
 color: #fff;
 font: 100% Century Gothic;
 font-size: 2em;
+transition: background .35s ease-in-out;
+        -moz-transition: background .35s ease-in-out;
+        -webkit-transition: background .35s ease-in-out;
 }
 #loadmore:hover {
 background: rgba(255,255,255,.1);
@@ -254,6 +264,9 @@ color: #fff;
 font: 100% Century Gothic;
 font-size: 2em;
 display: block;
+transition: background .35s ease-in-out;
+        -moz-transition: background .35s ease-in-out;
+        -webkit-transition: background .35s ease-in-out;
 }
 #support:hover {
 background: rgba(255,255,255,.1);
@@ -274,6 +287,9 @@ border-radius: 20px;
 color: #fff;
 font: 100% Century Gothic;
 font-size: 1.3em;
+transition: background .35s ease-in-out;
+        -moz-transition: background .35s ease-in-out;
+        -webkit-transition: background .35s ease-in-out;
 }
 .button:hover {
 background: rgba(255,255,255,.1);
@@ -439,6 +455,9 @@ border-radius: 20px;
 color: #fff;
 font: 100% Century Gothic;
 font-size: 1.2em;
+transition: background .35s ease-in-out;
+        -moz-transition: background .35s ease-in-out;
+        -webkit-transition: background .35s ease-in-out;
 }
 #authored:hover {
 background: rgba(255,255,255,.1);
@@ -644,11 +663,14 @@ div.ftext {
 }
 
 /*---POPULAR---*/
-.popular:link {
+.popular {
     text-decoration: none;
     font-size: 1.3em;
     padding-left: 10px;
     padding-right: 10px;
+transition: background .35s ease-in-out;
+        -moz-transition: background .35s ease-in-out;
+        -webkit-transition: background .35s ease-in-out;
 }
 
 .popular:hover {
