@@ -37,16 +37,19 @@ if($pagenum>=1&&$pagenum<=$total_pages)
         $replies = mysql_query("SELECT * FROM `replies` WHERE replies_postid = ".$id."");
         $repliestotal = (mysql_num_rows($replies));
 
-        echo '<div class="index">
+       echo '<div class="index">
 
-        <div class="preview"><h2 align=:left" style="color: #fff; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
+       <div class="preview" <h2 align="left" style="color: #fff; font-size: 2em; display: inline"><a href="content.php?id='. $id . ' " class="register" style="color:#fff">'. $title .'</a></h2>
+
+
              <div class="prevContent">';
                 echo substr($content,0,600);
                      echo '<h5 style="display: inline">...
                               <a href="content.php?id='. $id . '" class="register" style="color: #7DAAFF; font-style: italic">Continue Reading</a>
                            </h5>
             </div>
-       </div>
+            </div>
+
                           <br></br>
 
             <h3 align=:left" style="color: #C9E4FF; font-size: 1.3em; display: inline">' . $category . '</h3>
