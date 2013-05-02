@@ -616,8 +616,10 @@ font-size: 1.2em;
     margin-right: auto;
     margin-bottom: 50px;
     size: relative;
+    font-size: 1.2em;
 }
 .reply textarea{
+        font-size: 1.2em;
         display: block;
         width: 100%;
         height: 120px;
@@ -632,6 +634,7 @@ font-size: 1.2em;
         background:rgba(255,255,255,.05)
 }
 #contentreply {
+    font-size: 1.2em;
         width: 700px;
         size: relative;
         -webkit-background-size: cover;

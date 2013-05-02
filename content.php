@@ -73,10 +73,14 @@ $result2 = mysql_query($sql2);
                 <h1 align="left" id ="community" style="color:#fff">Community</h1>
 
              <div class="reply">
-                  <h6 align="Left" style="color:#fff; display: block; margin-left: 210px;margin-top:-50px">Views: ' . $row['post_views'] . '</h6>
-                  <h6 align="Left" style="color:#fff; display: block;margin-top: -5px; margin-bottom: 30px;margin-left:210px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
-                  <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
-                  <h7 align="Left" style="color:#fff">Bring something new to the table.</h7>';
+                  <div style="margin-bottom: 20px">
+                     <h6 align="Left" style="color:#fff; display: inline; margin-top: -25px">Views: ' . $row['post_views'] . '</h6>
+                     <h6 align="Left" style="color:#fff; display: inline; margin-bottom: 30px;margin-left:10px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
+                  </div>
+                  <div>
+                     <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
+                     <h7 align="Left" style="color:#fff; display: inline">Bring something new to the table.</h7>
+                  </div>';
         }
 }
 ?>

@@ -4,7 +4,7 @@ include 'header.php';
 ?>
 
 
-<h1 align="center" style="color:#fff; margin-top: -40px; width:100%;height:50px">Most Popular: Last 30 Days</h1>
+<h1 align="center" style="color:#fff; margin-top: 40px; width:100%;height:50px">Most Popular: Last 30 Days</h1>
 <h6 align="center" style="color:#fff; margin-top:-25px; margin-bottom:30px;height: 25px">-<a href="popular.php" class="popular" style="color:#C9C9C9">24 Hours</a>-<a href="popular_month.php" class="popular" style="color:#C9C9C9">30 Days</a>-<a href="popular_alltime.php" class="popular" style="color:#C9C9C9">All Time</a>-</h6>
 
 
