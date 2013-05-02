@@ -62,8 +62,8 @@ $("#content").append(data);
 
 echo '<div id="content"></div>
       <div class="index">
-         <input id="loadmore" class="index" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'">
-      </div>';
+      <div style="width: 200px; margin-left: auto; margin-right: auto"><input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'"></div>';
+
 
 ?>
 

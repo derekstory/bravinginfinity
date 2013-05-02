@@ -37,7 +37,7 @@ $("#content").append(data);
 <?php
 
 echo '<div id="content"></div>
-      <input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'">';
+      <div style="width: 200px; margin-left: auto; margin-right: auto"><input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'"></div>';
 ?>
 
 <?php
