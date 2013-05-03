@@ -16,22 +16,20 @@
 <ul id="nav" class="drop">
 <form>
 
-
   <li style="background: rgba(0,0,0,0)">
    <span id="SrchBox">
     <input id='Srch' type='text' placeholder="Search Item">
-    <div style="margin-left: -25px; margin-top: 2px; width: 45px; float: left; background: #DB6565; border-top-right-radius: 15px; border-bottom-right-radius: 15px"><input type='image' src='/Style/images/MagnifyingGlassClear.png' style="width: 20px; height: 19px; margin-left: 10px; margin-top: 1px"/></div>
+    <div id="SrchImgBack"><input type='image' src='/Style/images/MagnifyingGlassClear.png'/></div>
    </span>
   </li>
 
   <li>
     <span>
       <a href="index.php">
-        <img id="logo" src='/Style/images/header2.png' height="40px" style="margin-top: -15px">
+        <img id="logo" src='/Style/images/header2.png' height="40px" style="margin-top: -15px; outline: none">
       </a>
     </span>
   </li>
-
 
  <li class="menudrops" style="border-right: 1px solid #000">
    <span>Browse</span>

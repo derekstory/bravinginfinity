@@ -16,10 +16,10 @@ else
 	if($_SERVER['REQUEST_METHOD'] != 'POST')
         {
                 echo '<form method="post" action="">
-                      User Name: <input type="text" name="user_name" style="height:50px;text-align:left; width:100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none" /><br />
-                      Password: <input type="password" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em;background: rgba(255,255,255,.05); color: #fff; border: none"/><br />
-                      <input type="submit" value="Sign-In" style="height:25px;width:100px;background:#fff;color:#000;display:block" /><br />
-                      <h4 style="color:#fff">Not a member yet? <a href="signup.php">Register</a> a new account for free!</h4>
+                      User Name: <input type="text" name="user_name" style="height:50px;text-align:left; width:100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none; outline: none" /><br />
+                      Password: <input type="password" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em;background: rgba(255,255,255,.05); color: #fff; border: none; outline: none"/><br />
+                      <input type="submit" value="Sign-In" id="submit"/><br />
+                      <h4 style="color:#fff">Not a member yet? <a href="signup.php" class="register" style="color: #5870D1">Register</a> a new account for free!</h4>
                 </form>';
         }
         else
@@ -28,17 +28,17 @@ else
 
 		if(empty($_POST['user_name']))
 		{
-			$errors[] = die('The username field must not be empty.');
+			$errors[] = die('The username field must not be empty. Please <a href="signin.php" class="register" style="color: #5870D1">try again</a>.');
 		}
 
 		if(empty($_POST['user_pass']))
 		{
-			$errors[] = die('The password field must not be empty.');
+			$errors[] = die('The password field must not be empty. Please <a href="signin.php" class="register" style="color: #5870D1">try again</a>.');
 		}
 		if(!empty($errors))
 		{
 			$die;
-                        echo 'Uh-oh.. a couple of fields are not filled in correctly. Please <a href="signin.php">try again</a>.<br /><br />';
+                        echo 'Uh-oh.. a couple of fields are not filled in correctly. Please <a href="signin.php" class="register" style="color: #5870D1">try again</a>.<br /><br />';
 			echo '<ul>';
 			foreach($errors as $key => $value)
 			{
@@ -68,7 +68,7 @@ else
 			{
 				if(mysql_num_rows($result) == 0)
 				{
-					echo 'You have supplied a wrong user/password combination.  Please <a href="signin.php">try again</a>.<br /><br />';
+					echo 'You have supplied a wrong user/password combination.  Please <a href="signin.php" class="register" style="color: #5870D1">try again</a>.<br /><br />';
 				}
 				else
 				{

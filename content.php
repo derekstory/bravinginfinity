@@ -91,7 +91,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
 
      echo '<form method="post" action="content.php?id=' . mysql_real_escape_string($_GET['id']). '#community">
-     <textarea name="replies_content" maxLength="2000"></textarea>
+     <textarea name="replies_content" maxLength="2000" style="outline: none"></textarea>
      </div>
 
           <h6 align="Left" style="color:#fff; display: inline">Contribution</h6>
@@ -105,7 +105,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
    {
    if($_SESSION['signed_in'] == false)
                 {
-            echo '<h4 style="color:#fff">You must <a href="signin.php"> sign in</a> to post a new topic.</h4>';
+            echo '<h4 style="color:#fff">You must <a href="signin.php" class="register" style="color: #5870D1"> sign in</a> to post a new topic.</h4>';
                 }
    }
    echo '<input type="submit" class="button" value="Post Reply" />

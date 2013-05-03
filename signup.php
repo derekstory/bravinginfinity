@@ -14,16 +14,16 @@ $q = mysql_query("SELECT user_name FROM users WHERE user_name = '$user_name'");
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
 echo '<form method="post" action="">
-           User Name<input type="text" name="user_name"style="height:50px;text-align:left; width:100%; font-size:1.3em; background: rgba(255,255,255,.05); color: #fff; border: none"/><br />
-           Password<input type="PASSWORD" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none "/><br />
-           Repeat Password<input type="PASSWORD" name="user_pass_check"style="height:50px;text-align:left;width:100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none"/><br />
-           E-mail Address<input type="text" name="user_email" style="height:50px;text-align:left;width:100%; font-size:1.3em;background: rgba(255,255,255,.05); color: #fff; border: none " /><br />
+           User Name<input type="text" name="user_name"style="height:50px;text-align:left; width:100%; font-size:1.3em; background: rgba(255,255,255,.05); color: #fff; border: none; outline: none"/><br />
+           Password<input type="PASSWORD" name="user_pass" style="height:50px;text-align:left; width: 100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none; outline: none "/><br />
+           Repeat Password<input type="PASSWORD" name="user_pass_check"style="height:50px;text-align:left;width:100%; font-size: 1.3em; background: rgba(255,255,255,.05); color: #fff; border: none; outline: none"/><br />
+           E-mail Address<input type="text" name="user_email" style="height:50px;text-align:left;width:100%; font-size:1.3em;background: rgba(255,255,255,.05); color: #fff; border: none; outline: none" /><br />
       <h6><style="color:#fff;display:inline">By clicking "Register", I acknowledge that I have read and agree with the:</h6>
-      <h5><a href="termsandconditions.php"><style="color:#fff;display:inline">Terms and Conditions</a></h5>
-          <input type="submit" value="Register" style="height:25px;width:100px;background:#fff;color:#000;display:block" /></p>
+      <h5><a href="termsandconditions.php" class="register" style="color: #5870D1">Terms and Conditions</a></h5>
+          <input type="submit" value="Register" id="submit"/></p>
       </form>';
 
-echo ' <h4 style="color:#fff; margin-top:50px">Already a member? <a href="signin.php">Sign-In</a> to your account!</h4>';
+echo ' <h4 style="color:#fff; margin-top:50px">Already a member? <a href="signin.php" class="register" style="color: #5870D1">Sign-In</a> to your account!</h4>';
 }
 else
 {

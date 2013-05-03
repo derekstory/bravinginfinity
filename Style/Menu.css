@@ -56,9 +56,14 @@ ul.drop li:hover {
         background-image: radial-gradient(circle farthest-corner at center bottom, #424242 0%, #000000 100%, #000000 100%);
         margin-top: -0px;
         height: 30px;
+
 }
 .menudrops{
         border-left: 1px solid #000;
+-webkit-transition: all .8s ease;
+        -moz-transition: all .8s ease;
+        -ms-transition: all .8s ease;
+        -o-transition: all .8s ease;
 }
 ul.drop ul {
         visibility: hidden;
@@ -97,39 +102,21 @@ ul.drop ul ul {
 ul.drop li:hover > ul {
         visibility: visible;
 }
-#mnuSrch {
-        width:200px;
-        height: 24px;
-        margin-left: 5px;
-        border-left: 2px solid #222;
-        border-top: 2px solid #222;
-        border-bottom: 2px solid #222;
-        border-right: 1px solid rgba(0,0,0,205);
-        padding-left: 10px;
-        font-size: .8em;
-        background: #6E6E6E;
-        color: #fff;
-        float: left;
-}
-#mnuSrch::-webkit-input-placeholder {
-  color: #fff;
-  font-size: .7em;
-  padding-top: 3px;
-}
-#mnuSrch::-moz-placeholder {
-  color: #fff;
-  font-size: 10px;
-  padding-top: 3px;
-}
-#mnuSrch:-ms-input-placeholder {
-  color: #fff;
-  font-size: .7em;
-  padding-top: 3px;
-}
+
+/*-----Search Bar-------*/
+
 form input[type=image]{
-	height:25px;
-        display: inline-block;
-        float: left:
+        width: 25px;
+}
+#SrchImgBack {
+        padding-top: 2px;
+        width: 30px;
+        height: 25px;
+        margin-top: 2px;
+        float: left;
+        background: #DB6565;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
 }
 #SrchBox{
         margin-top: -7px;
@@ -139,34 +126,39 @@ form input[type=image]{
         width:170px;
         height: 25px;
         margin-left: 5px;
-        margin-right: -20px;
         border-left: 2px solid #222;
         border-top: 2px solid #222;
         border-bottom: 2px solid #222;
         border-right: 1px solid rgba(0,0,0,205);
         padding-left: 10px;
-        padding-right: 50px;
+        padding-right: 25px;
         font-size: .8em;
         background: #fff;
         color: #000;
-        border-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
         float: left;
+        outline: none;
 }
 #Srch::-webkit-input-placeholder {
-  color: #888;
-  font-size: .85em;
-  padding-top: 2px;
+        color: #888;
+        font-size: .85em;
+        padding-top: 2px;
 }
 #Srch::-moz-placeholder {
-  color: #000;
-  font-size: 9px;
-  padding-top: 3px;
+        color: #000;
+        font-size: 9px;
+        padding-top: 3px;
 }
 #Srch:-ms-input-placeholder {
-  color: #888;
-  font-size: .8em;
-  padding-top: 3px;
+        color: #888;
+        font-size: .8em;
+        padding-top: 3px;
 }
+
+
+/*-----New Post Button-----*/
+
 #newpost {
         background: #DB6565;
         transition: background .35s ease-in-out;

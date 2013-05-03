@@ -73,30 +73,25 @@ if($postnum < 1)
 <div id="profileactivity2" class="hidden">
 
 <?php
-$sql = "SELECT *
 
-         FROM
-                   `users`,`post`
-         WHERE
-                    user_name = post_author
-         AND
-                     user_id = " . mysql_real_escape_string($_GET['id']). "";
-
-$posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
-$postnum = mysql_num_rows($posttitle);
-$result = mysql_query($sql);
-if($postnum < 1)
+$repliescount = mysql_query("SELECT * FROM `replies`,`users`,`post` WHERE replies_author = user_name AND user_id = " . mysql_real_escape_string($_GET['id']). " AND post_id = replies_postid");
+$repliesnum = mysql_num_rows($repliescount);
+$resultreplies = mysql_query($sql);
+if($repliesnum < 1)
 {
         echo    '<h1 align="left" style="display:block; font-size: 3.2em">This user has not authored any replies to other users.</h1>';
 }
-        else
-        echo    '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
+else
 {
-        while($row = mysql_fetch_assoc($result))
+        echo    '<h1 align="left" style="display:block; font-size: 3.2em">Replies Authored</h1>';
+  {
+        while($r = mysql_fetch_assoc($repliescount))
         {
-        echo    '<h5 align="left" style="display:block;margin-top:20p"><a href="content.php?id='. $row['post_id'] . ' "class="register" style="color:#A6D690">' .   $row['post_title'] . '</a></h5>
-                 <h5 align="left" style="display:block;margin-top:-10px">'. $row['post_date'] .'</h3>';
+        echo    '<h5 align="left" style="display:block;margin-top:40px; color: #fff">Replied to "<a href="content.php?id='. $r['replies_postid'] . '" class="register" style="color:#B8F5EE">' .   $r['post_title'] . '</a>" by<a style="color:#B8D9F5"> ' . $r['post_author'] . '</a></h5><br>
+<div style="dispaly: inline-block; margin-top: -25px; margin-bottom: -25px"><h5 style="display: inline">Contribution:</h5><h5 align="left" style="display:inline; color: #888"> '. $r['replies_contribution'] .'</h5></div>
+                 <h5 align="left" style="display:block">'. $r['replies_date'] .'</h5>';
         }
+  }
 }
 ?>
 </div>
@@ -113,7 +108,7 @@ $sql = "SELECT *
          AND
                      user_id = " . mysql_real_escape_string($_GET['id']). "";
 
-$posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND  user_id = " . mysql_real_escape_string($_GET['id']). "");
+$posttitle = mysql_query("SELECT post_title FROM `post`,`users` WHERE user_name = post_author AND   user_id = " . mysql_real_escape_string($_GET['id']). "");
 $postnum = mysql_num_rows($posttitle);
 $result = mysql_query($sql);
 

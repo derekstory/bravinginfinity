@@ -12,7 +12,7 @@ body {
         min-width: 1000px;
 }
 #wrapper {
-        width: 100%;1
+        width: 100%;
 	margin-right: auto;
 	margin-left: auto;
         argin-top: auto;
@@ -25,26 +25,25 @@ body {
 -----------------------------------------------------------------------------*/
 
 #fixedhead2 {
-    width: 100%;
-    height: 35px;
+        width: 100%;
+        height: 35px;
 }
 .register {
-    text-decoration: none;
-    transition: opacity .25s ease-in-out;
-   -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
-
+        text-decoration: none;
+        transition: opacity .25s ease-in-out;
+        -moz-transition: opacity .25s ease-in-out;
+        -webkit-transition: opacity .25s ease-in-out;
 }
 .register:hover {
-    opacity: 0.2;
+        opacity: 0.2;
 }
 #logo2 {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -30px;
-    margin-bottom: 20px;
-    float: right;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -30px;
+        margin-bottom: 20px;
+        float: right;
 }
 #tinymenu {
         padding-top: 8px;
@@ -57,54 +56,51 @@ body {
         white-space: nowrap;
 }
 
-
 /* =Index
 -----------------------------------------------------------------------------*/
 
 .index {
-    width: auto;
-    margin-left: 350px;
-    margin-right: 50px;
-    font-size: .8em;
-    }
-
-
+        width: auto;
+        margin-left: 350px;
+        margin-right: 50px;
+        font-size: .8em;
+}
 .preview {
-color: #fff;
+        color: #fff;
 
 }
 .prevContent {
-color: #fff;
-width: 100%;
-height: 0;
-overflow:hidden;
-left: 0;
-font-size: .8em;
--webkit-transition: all .8s ease;
--moz-transition: all .8s ease;
--ms-transition: all .8s ease;
--o-transition: all .8s ease;
-transition: all .8s ease;
-transition-delay: .25s;
--webkit-transition-delay: .25s; /* Safari */
+        color: #fff;
+        width: 100%;
+        height: 0;
+        overflow:hidden;
+        left: 0;
+        font-size: .8em;
+        -webkit-transition: all .8s ease;
+        -moz-transition: all .8s ease;
+        -ms-transition: all .8s ease;
+        -o-transition: all .8s ease;
+        transition: all .8s ease;
+        transition-delay: .25s;
+        -webkit-transition-delay: .25s; /* Safari */
 }
 .preview:hover > .prevContent {
-display:block;
-left:0px;
-height:150px;
+        display:block;
+        left:0px;
+        height:150px;
 }
 .toc {
-    width: 90%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    font-size: .8em;
+        width: 90%;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        font-size: .8em;
 }
 
 #sidebar {
 	color: #fff;
-        font-size: .9em;
+        font-size: 1em;
 	border-right: 1px solid;
         border-color: rgba(255,255,255,.1);
 	width: 300px;
@@ -115,98 +111,135 @@ height:150px;
         padding-left: 10px;
         }
 
-/*---Load More Button---*/
-
+/*---Buttons---*/
+#submit {
+        margin-right: auto;
+        margin-left: auto;
+        width: 200px;
+        background: rgba(0,0,0,0);
+        margin-top: 30px;
+        border: 1px #fff solid;
+        border-radius: 20px;
+        color: #fff;
+        font: 100% Century Gothic;
+        font-size: 1.5em;
+        transition: background .35s ease-in-out;
+        -moz-transition: background .35s ease-in-out;
+        -webkit-transition: background .35s ease-in-out;
+}
+#submit:hover {
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #fff;
+        cursor: pointer;
+        font: 100% Century Gothic;
+        font-size: 1.5em;
+}
+#submit:active {
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #000;
+        font: 100% Century Gothic;
+        font-size: 2em;
+}
 #loadmore {
-margin-right: auto;
-margin-left: auto;
-width: 200px;
-background: rgba(0,0,0,0);
-margin-top: 30px;
-border: 1px #fff solid;
-border-radius: 20px;
-color: #fff;
-font: 100% Century Gothic;
-font-size: 2em;
-transition: background .35s ease-in-out;
+        margin-right: auto;
+        margin-left: auto;
+        width: 200px;
+        background: rgba(0,0,0,0);
+        margin-top: 30px;
+        border: 1px #fff solid;
+        border-radius: 20px;
+        color: #fff;
+        font: 100% Century Gothic;
+        font-size: 2em;
+        transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
 }
 #loadmore:hover {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #fff;
-cursor: pointer;
-font: 100% Century Gothic;
-font-size: 2em;
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #fff;
+        cursor: pointer;
+        font: 100% Century Gothic;
+        font-size: 2em;
 }
 #loadmore:active {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #000;
-font: 100% Century Gothic;
-font-size: 2em;
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #000;
+        font: 100% Century Gothic;
+        font-size: 2em;
 }
 #support {
-margin-right: auto;
-margin-left: auto;
-width: 200px;
-background: rgba(0,0,0,0);
-margin-top: 30px;
-border: 1px #fff solid;
-border-radius: 20px;
-color: #fff;
-font: 100% Century Gothic;
-font-size: 2em;
-display: block;
-transition: background .35s ease-in-out;
+        margin-right: auto;
+        margin-left: auto;
+        width: 200px;
+        background: rgba(0,0,0,0);
+        margin-top: 30px;
+        border: 1px #fff solid;
+        border-radius: 20px;
+        color: #fff;
+        font: 100% Century Gothic;
+        font-size: 2em;
+        display: block;
+        transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
 }
 #support:hover {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #fff;
-cursor: pointer;
-font: 100% Century Gothic;
-font-size: 2em;
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #fff;
+        cursor: pointer;
+        font: 100% Century Gothic;
+        font-size: 2em;
+}
+#support:active {
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #000;
+        font: 100% Century Gothic;
+        font-size: 2em;
 }
 .button {
-margin-left: 0px;
-width: 120px;
-height: 30px;
-background: rgba(0,0,0,0);
-margin-top: 30px;
-border: 1px #fff solid;
-border-radius: 20px;
-color: #fff;
-font: 100% Century Gothic;
-font-size: 1.3em;
-transition: background .35s ease-in-out;
+        display: block;
+        margin-left: 0px;
+        width: 120px;
+        height: 30px;
+        background: rgba(0,0,0,0);
+        margin-top: 30px;
+        border: 1px #fff solid;
+        border-radius: 20px;
+        color: #fff;
+        font: 100% Century Gothic;
+        font-size: 1.3em;
+        transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
 }
 .button:hover {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #fff;
-cursor: pointer;
-font: 100% Century Gothic;
-font-size: 1.3em;
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #fff;
+        cursor: pointer;
+        font: 100% Century Gothic;
+        font-size: 1.3em;
 }
 .button:active {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #000;
-font: 100% Century Gothic;
-font-size: 1.3em;
+        background: rgba(255,255,255,.1);
+        border: 1px #12495d solid;
+        color: #000;
+        font: 100% Century Gothic;
+        font-size: 1.3em;
 }
 /*---Profile---*/
 
 #profbutton {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
 }
 @media only screen and (min-width: 600px) {
 #profilestats{
@@ -340,34 +373,34 @@ font-size: 1.3em;
   }
 }
 #authored {
-margin-right: auto;
-margin-left: 0px;
-width: 180px;
-background: rgba(0,0,0,0);
-margin-top: 30px;
-border: 1px #fff solid;
-border-radius: 20px;
-color: #fff;
-font: 100% Century Gothic;
-font-size: 1.2em;
-transition: background .35s ease-in-out;
-        -moz-transition: background .35s ease-in-out;
-        -webkit-transition: background .35s ease-in-out;
+    margin-right: auto;
+    margin-left: 0px;
+    width: 180px;
+    background: rgba(0,0,0,0);
+    margin-top: 30px;
+    border: 1px #fff solid;
+    border-radius: 20px;
+    color: #fff;
+    font: 100% Century Gothic;
+    font-size: 1.2em;
+    transition: background .35s ease-in-out;
+    -moz-transition: background .35s ease-in-out;
+    -webkit-transition: background .35s ease-in-out;
 }
 #authored:hover {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #fff;
-cursor: pointer;
-font: 100% Century Gothic;
-font-size: 1.2em;
+    background: rgba(255,255,255,.1);
+    border: 1px #12495d solid;
+    color: #fff;
+    cursor: pointer;
+    font: 100% Century Gothic;
+    font-size: 1.2em;
 }
 #authored:active {
-background: rgba(255,255,255,.1);
-border: 1px #12495d solid;
-color: #000;
-font: 100% Century Gothic;
-font-size: 1.2em;
+    background: rgba(255,255,255,.1);
+    border: 1px #12495d solid;
+    color: #000;
+    font: 100% Century Gothic;
+    font-size: 1.2em;
 }
 
 /*---Post---*/
@@ -402,6 +435,7 @@ font-size: 1.2em;
         overflow: auto;
         resize: none;
         background:rgba(255,255,255,.05);
+        outline: none;
 }
 .headerarea textarea{
         font-size: 1.7em;
@@ -417,7 +451,7 @@ font-size: 1.2em;
         overflow: auto;
         resize: none;
         background:rgba(255,255,255,.05);
-
+        outline: none;
 }
 #termsandconditions {
         color:#fff;
@@ -546,8 +580,8 @@ font-size: 1.2em;
         height: 40px;
 }
 div.ftext {
-       text-align: center;
-       padding-top: 12px;
+        text-align: center;
+        padding-top: 12px;
 }
 .footer, .push {
         padding-bottom: 500px;
@@ -555,20 +589,20 @@ div.ftext {
 
 /*---POPULAR---*/
 .popular {
-    text-decoration: none;
-    font-size: 1.3em;
-    padding-left: 10px;
-    padding-right: 10px;
-transition: background .35s ease-in-out;
+        text-decoration: none;
+        font-size: 1.3em;
+        padding-left: 10px;
+        padding-right: 10px;
+        transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
 }
 
 .popular:hover {
-    text-decoration: underline;
+       text-decoration: underline;
 }
 
 /*---Hidden Divs---*/
 .hidden {
-    display: none;
+       display: none;
 }
