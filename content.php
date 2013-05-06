@@ -40,7 +40,6 @@ $sql2 = "SELECT *
          AND
                    post_author = user_name";
 
-
 $result2 = mysql_query($sql2);
 {
         while($row = mysql_fetch_assoc($result2))
@@ -53,34 +52,45 @@ $result2 = mysql_query($sql2);
      {
         echo '<div id="posthead">
                    <h1 align="left">' . $row["post_title"] . '</h1>
-              </div>';
-
-        echo '<div id="postauth">
+              </div>
+              <div id="postauth">
                   <h6 align="left">Author: <a href="profile.php?id='. $row['user_id'] . ' "class="register" style="color:#567ABA; font-size:1em">' . $row['post_author'] . '</a></h6>
-              </div>';
-
-        echo '<div id="postdate">
+              </div>
+              <div id="postdate">
                   <h6 align="left">' . $row['post_date'] . '</h6>
-              </div>';
+              </div>
+        </div>
 
-        echo '<div id="postresult">';
+<div id="postresult">';
         echo nl2br(htmlentities($row['post_content']));
-        echo '</div>';
 
+  echo '<div sytle="display: inline-block"
+     <form>
+         <input type="image" title="Show support!" id="communitybutton" src="/Style/images/support.png"/>
+     </form>
+     <a href="content.php?id=' . $row["post_id"] . '#community" title="Reply" ><img id="communitybutton" style="margin-left: 10px" src="/Style/images/reply.png"></a>
+     <form>
+        <input type="image" title="Mark as Abuse or Spam" id="communitybutton" style="margin-left: 10px" src="/Style/images/spam.png"/>
+     </form>
+  </div>
+</div>
 
-             echo '<hr style="width:80%; margin-top:30px"></hr>
-             <div id="contentreply">
+  <br></br>';
+        echo '<hr style="width:80%"></hr>
+
+        <div id="contentreply">
                 <h1 align="left" id ="community" style="color:#fff">Community</h1>
 
-             <div class="reply">
-                  <div style="margin-bottom: 20px">
-                     <h6 align="Left" style="color:#fff; display: inline; margin-top: -25px">Views: ' . $row['post_views'] . '</h6>
-                     <h6 align="Left" style="color:#fff; display: inline; margin-bottom: 30px;margin-left:10px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
-                  </div>
-                  <div>
+                 <div class="reply">
+                     <div style="margin-bottom: 20px">
+                         <h6 align="Left" style="color:#fff; display: inline; margin-top: -25px">Views: ' . $row['post_views'] . '</h6>
+                         <h6 align="Left" style="color:#fff; display: inline; margin-bottom: 30px;margin-left:10px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
+                     </div>
+                <div>
+
                      <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
                      <h7 align="Left" style="color:#fff; display: inline">Bring something new to the table.</h7>
-                  </div>';
+        </div>';
         }
 }
 ?>
@@ -108,7 +118,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
             echo '<h4 style="color:#fff">You must <a href="signin.php" class="register" style="color: #5870D1"> sign in</a> to post a new topic.</h4>';
                 }
    }
-   echo '<input type="submit" class="button" value="Post Reply" />
+   echo '<input type="submit" class="button" value="Post Reply" style="font-size: 1em"/>
      </form>';
 
 }
