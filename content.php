@@ -9,14 +9,7 @@ $sql = "UPDATE post SET post_views = post_views +1
          AND post_author != '" . ($_SESSION['user_name']) . "'";
 $result = mysql_query($sql);
 
-$editsql = "SELECT *
-
-        FROM
-                `post` , `users`
-        WHERE
-                post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author
-        OR
-                post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
+$editsql = "SELECT * FROM `post` , `users` WHERE post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author OR post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
 
 $editresult = mysql_query($editsql);
 
@@ -28,9 +21,6 @@ $editresult = mysql_query($editsql);
                      <h3 align="right"><a href="deleteconfirm.php?id=' . $row['post_id'] . '" style="color: #577DC2" class="register">DELETE this post.</a></h1>
                      </div>';
         }
-?>
-
-<?php
 $sql2 = "SELECT *
 
          FROM
@@ -64,13 +54,18 @@ $result2 = mysql_query($sql2);
 <div id="postresult">';
         echo nl2br(htmlentities($row['post_content']));
 
-  echo '<div sytle="display: inline-block"
-     <form>
-         <input type="image" title="Show support!" id="communitybutton" src="/Style/images/support.png"/>
-     </form>
-     <a href="content.php?id=' . $row["post_id"] . '#community" title="Reply" ><img id="communitybutton" style="margin-left: 10px" src="/Style/images/reply.png"></a>
-     <form>
-        <input type="image" title="Mark as Abuse or Spam" id="communitybutton" style="margin-left: 10px" src="/Style/images/spam.png"/>
+    echo '<div sytle="display: inline-block"';
+    {
+    if (isset($_POST['post_supporters_x']))
+         {
+         $sqlsupport =  "UPDATE `post`,`users` SET post_supporters = post_supporters +1 WHERE post_id  = " . mysql_real_escape_string($_GET['id']). "";
+         $supportresult = mysql_query($sqlsupport);
+         }
+    }
+
+     echo '<a href="content.php?id=' . $row["post_id"] . '#community" title="Reply" ><img id="communitybutton" style="margin-left: 10px" src="/Style/images/reply.png"></a>';
+echo '<form method="post" onsubmit="onSave();return false;">
+        <input type="image" name="post_supporters" title="Mark as Abuse or Spam" id="communitybutton" style="margin-left: 10px" src="/Style/images/support.png"/>
      </form>
   </div>
 </div>
@@ -93,9 +88,6 @@ $result2 = mysql_query($sql2);
         </div>';
         }
 }
-?>
-
-<?php
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
@@ -120,9 +112,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
    }
    echo '<input type="submit" class="button" value="Post Reply" style="font-size: 1em"/>
      </form>';
-
 }
-     else
+else
 {
                 if($_SESSION['signed_in'] == false)
                 {
@@ -159,7 +150,6 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
                       $replies = "COMMIT";
                       $repliesresult = mysql_query($replies);
                       echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=content.php?id=' . mysql_real_escape_string($_GET['id']). '">';
-
                       }
                    }
 
@@ -168,19 +158,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 ?>
 
 <?php
-$comments = "SELECT *
-
-             FROM
-                        `replies`,`users`
-
-             WHERE
-                        replies_postid =  " . mysql_real_escape_string($_GET['id']). "
-             AND
-                        replies_author = user_name
-             ORDER BY
-                        replies_date
-             DESC LIMIT
-                        0, 1000";
+$comments = "SELECT * FROM `replies`,`users` WHERE replies_postid =  " . mysql_real_escape_string($_GET['id']). " AND replies_author = user_name ORDER BY replies_date DESC LIMIT 0, 1000";
 
 $res = mysql_query($comments);
 $total = mysql_num_rows($res);

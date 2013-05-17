@@ -22,7 +22,6 @@ $sql =            "SELECT *
 
 $q = mysql_query($sql);
 
-
 if($_SERVER['REQUEST_METHOD'] != 'POST' && $_SESSION['signed_in'] == true)
 while($row = mysql_fetch_assoc($q))
   {
@@ -125,7 +124,6 @@ else
                                                            post_keywords =  '" . mysql_real_escape_string($_POST['post_keywords']) . "'
                                     WHERE
                                                            post_id = " . mysql_real_escape_string($_GET['id']). "";
-
 
 			$editresult = mysql_query($editsql);
 			if(!$editresult)
