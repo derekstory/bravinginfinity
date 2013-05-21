@@ -24,12 +24,15 @@ $featrow = mysql_fetch_assoc($feat);
      <h5 style="margin-top: -5px; font-size: 1em">by  <a href="profile.php?id='. $featrow['user_id'] . ' "class="register" style="color:#F59A9A; font-size:1.2em">' . $featrow['post_author'] . '</a></h5>';
      echo nl2br(htmlentities($featrow['post_content']));
 
-     echo '<input id="support" type="button" value="Support">';
+  echo '<div sytle="display: inline-block"
+     <form>
+         <input type="image" title="Show support!" id="communitybutton" src="/Style/images/support.png"/>
+     </form>
+     <a href="content.php?id=' . $featrow["post_id"] . '#community" title="Reply"><img id="communitybutton" style="margin-left: 10px" src="/Style/images/reply.png"></a>
 
-  echo '</div>';
+  </div>';
+echo '</div>';
 ?>
-
-
 
 <?php
 $rowsperpage = 20;
@@ -62,7 +65,7 @@ $("#content").append(data);
 
 echo '<div id="content"></div>
       <div class="index">
-      <div style="width: 200px; margin-left: auto; margin-right: auto"><input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'"></div>';
+            <div style="width: 200px; margin-left: auto; margin-right: auto"><input id="loadmore" type="button" value="Load More"> <input id="pages" type="hidden" value="'.$total_pages.'"></div>';
 
 
 ?>

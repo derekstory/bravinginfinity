@@ -9,14 +9,7 @@ $sql = "UPDATE post SET post_views = post_views +1
          AND post_author != '" . ($_SESSION['user_name']) . "'";
 $result = mysql_query($sql);
 
-$editsql = "SELECT *
-
-        FROM
-                `post` , `users`
-        WHERE
-                post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author
-        OR
-                post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
+$editsql = "SELECT * FROM `post` , `users` WHERE post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = post_author OR post_id = " . mysql_real_escape_string($_GET['id']). " && '" . $_SESSION['user_name'] . "' = 'admin'";
 
 $editresult = mysql_query($editsql);
 
@@ -28,9 +21,6 @@ $editresult = mysql_query($editsql);
                      <h3 align="right"><a href="deleteconfirm.php?id=' . $row['post_id'] . '" style="color: #577DC2" class="register">DELETE this post.</a></h1>
                      </div>';
         }
-?>
-
-<?php
 $sql2 = "SELECT *
 
          FROM
@@ -39,7 +29,6 @@ $sql2 = "SELECT *
                    post_id = " . mysql_real_escape_string($_GET['id']). "
          AND
                    post_author = user_name";
-
 
 $result2 = mysql_query($sql2);
 {
@@ -53,39 +42,52 @@ $result2 = mysql_query($sql2);
      {
         echo '<div id="posthead">
                    <h1 align="left">' . $row["post_title"] . '</h1>
-              </div>';
-
-        echo '<div id="postauth">
+              </div>
+              <div id="postauth">
                   <h6 align="left">Author: <a href="profile.php?id='. $row['user_id'] . ' "class="register" style="color:#567ABA; font-size:1em">' . $row['post_author'] . '</a></h6>
-              </div>';
-
-        echo '<div id="postdate">
+              </div>
+              <div id="postdate">
                   <h6 align="left">' . $row['post_date'] . '</h6>
-              </div>';
+              </div>
+        </div>
 
-        echo '<div id="postresult">';
+<div id="postresult">';
         echo nl2br(htmlentities($row['post_content']));
-        echo '</div>';
 
+    echo '<div sytle="display: inline-block"';
+    {
+    if (isset($_POST['post_supporters_x']))
+         {
+         $sqlsupport =  "UPDATE `post`,`users` SET post_supporters = post_supporters +1 WHERE post_id  = " . mysql_real_escape_string($_GET['id']). "";
+         $supportresult = mysql_query($sqlsupport);
+         }
+    }
 
-             echo '<hr style="width:80%; margin-top:30px"></hr>
-             <div id="contentreply">
+     echo '<a href="content.php?id=' . $row["post_id"] . '#community" title="Reply" ><img id="communitybutton" style="margin-left: 10px" src="/Style/images/reply.png"></a>';
+echo '<form method="post" onsubmit="onSave();return false;">
+        <input type="image" name="post_supporters" title="Mark as Abuse or Spam" id="communitybutton" style="margin-left: 10px" src="/Style/images/support.png"/>
+     </form>
+  </div>
+</div>
+
+  <br></br>';
+        echo '<hr style="width:80%"></hr>
+
+        <div id="contentreply">
                 <h1 align="left" id ="community" style="color:#fff">Community</h1>
 
-             <div class="reply">
-                  <div style="margin-bottom: 20px">
-                     <h6 align="Left" style="color:#fff; display: inline; margin-top: -25px">Views: ' . $row['post_views'] . '</h6>
-                     <h6 align="Left" style="color:#fff; display: inline; margin-bottom: 30px;margin-left:10px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
-                  </div>
-                  <div>
+                 <div class="reply">
+                     <div style="margin-bottom: 20px">
+                         <h6 align="Left" style="color:#fff; display: inline; margin-top: -25px">Views: ' . $row['post_views'] . '</h6>
+                         <h6 align="Left" style="color:#fff; display: inline; margin-bottom: 30px;margin-left:10px;margin-top:-10px">Supporters: ' .    $row['post_supporters'] . ' </h6>
+                     </div>
+                <div>
+
                      <h6 align="Left" style="color:#fff; display: inline">Reply</h6>
                      <h7 align="Left" style="color:#fff; display: inline">Bring something new to the table.</h7>
-                  </div>';
+        </div>';
         }
 }
-?>
-
-<?php
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
@@ -108,11 +110,10 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
             echo '<h4 style="color:#fff">You must <a href="signin.php" class="register" style="color: #5870D1"> sign in</a> to post a new topic.</h4>';
                 }
    }
-   echo '<input type="submit" class="button" value="Post Reply" />
+   echo '<input type="submit" class="button" value="Post Reply" style="font-size: 1em"/>
      </form>';
-
 }
-     else
+else
 {
                 if($_SESSION['signed_in'] == false)
                 {
@@ -149,7 +150,6 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
                       $replies = "COMMIT";
                       $repliesresult = mysql_query($replies);
                       echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=content.php?id=' . mysql_real_escape_string($_GET['id']). '">';
-
                       }
                    }
 
@@ -158,19 +158,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 ?>
 
 <?php
-$comments = "SELECT *
-
-             FROM
-                        `replies`,`users`
-
-             WHERE
-                        replies_postid =  " . mysql_real_escape_string($_GET['id']). "
-             AND
-                        replies_author = user_name
-             ORDER BY
-                        replies_date
-             DESC LIMIT
-                        0, 1000";
+$comments = "SELECT * FROM `replies`,`users` WHERE replies_postid =  " . mysql_real_escape_string($_GET['id']). " AND replies_author = user_name ORDER BY replies_date DESC LIMIT 0, 1000";
 
 $res = mysql_query($comments);
 $total = mysql_num_rows($res);
