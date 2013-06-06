@@ -10,6 +10,8 @@ body {
         background-size: cover;
         width: 100%;
         min-width: 1000px;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 #wrapper {
         width: 100%;
@@ -64,6 +66,8 @@ body {
         margin-left: 350px;
         margin-right: 50px;
         font-size: .8em;
+        font-family: 'Josefin Sans', sans-serif;
+
 }
 .preview {
         color: #fff;
@@ -101,6 +105,8 @@ body {
 #sidebar {
 	color: #fff;
         font-size: 1em;
+        font-family: 'Josefin Sans', sans-serif;
+
 	border-right: 1px solid;
         border-color: rgba(255,255,255,.1);
 	width: 300px;
@@ -126,13 +132,13 @@ body {
         transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
+        font-family: 'Josefin Sans', sans-serif;
 }
 #submit:hover {
         background: rgba(255,255,255,.1);
         border: 1px #12495d solid;
         color: #fff;
         cursor: pointer;
-        font: 100% Century Gothic;
         font-size: 1.5em;
 }
 #submit:active {
@@ -156,6 +162,8 @@ body {
         transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
+
+
 }
 #loadmore:hover {
         background: rgba(255,255,255,.1);
@@ -252,6 +260,7 @@ body {
         border-color: #fff;
         border-radius: 17px;
         padding-left: 3px;
+        font-family: 'Josefin Sans', sans-serif;
         }
 }
 @media only screen and (max-width: 600px) {
@@ -269,6 +278,8 @@ body {
     margin-right: auto;
     color: #fff;
     margin-top: -50px;
+        font-family: 'Josefin Sans', sans-serif;
+
 }
 @media only screen and (max-width: 600px) {
 #authorname {
@@ -286,6 +297,7 @@ body {
     color: #fff;
     margin-left: auto;
     margin-right: auto;
+        font-family: 'Josefin Sans', sans-serif;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -386,20 +398,21 @@ body {
     transition: background .35s ease-in-out;
     -moz-transition: background .35s ease-in-out;
     -webkit-transition: background .35s ease-in-out;
+        font-family: 'Josefin Sans', sans-serif;
 }
 #authored:hover {
     background: rgba(255,255,255,.1);
     border: 1px #12495d solid;
     color: #fff;
     cursor: pointer;
-    font: 100% Century Gothic;
+
     font-size: 1.2em;
 }
 #authored:active {
     background: rgba(255,255,255,.1);
     border: 1px #12495d solid;
     color: #000;
-    font: 100% Century Gothic;
+
     font-size: 1.2em;
 }
 
@@ -416,6 +429,7 @@ body {
         margin-top: 37px;
         margin-left: auto;
         margin-right: auto;
+        font-family: 'Josefin Sans', sans-serif;
 }
 .postarea {
         margin-top: 30px;
@@ -436,6 +450,7 @@ body {
         resize: none;
         background:rgba(255,255,255,.05);
         outline: none;
+        font-family: 'Josefin Sans', sans-serif;
 }
 .headerarea textarea{
         font-size: 1.7em;
@@ -452,12 +467,15 @@ body {
         resize: none;
         background:rgba(255,255,255,.05);
         outline: none;
+        font-family: 'Josefin Sans', sans-serif;
 }
 #termsandconditions {
         color:#fff;
         width: 80%;
         margin-left: auto;
         margin-right: auto;
+        font-family: 'Josefin Sans', sans-serif;
+
 }
 /*---Sign-In / Register---*/
 #contentsignup {
@@ -472,6 +490,8 @@ body {
         padding-left: 80px;
         min-width: 700px;
         font-size: 1.5em;
+        font-family: 'Josefin Sans', sans-serif;
+
 }
 #signin {
         margin-top: -140px;
@@ -486,6 +506,8 @@ body {
         padding-left: 80px;
         min-width: 700px;
         font-size: 1.5em;
+        font-family: 'Josefin Sans', sans-serif;
+
 }
 
 /*---Content---*/
@@ -498,19 +520,23 @@ body {
     margin-right: auto;
     font-size: 2.2em;
     display:block;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 #postauth {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -75px;
+    margin-top: -65px;
     color: #fff;
     font-size: 2.5em;
-    display:block
+    display:block;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 @media only screen and (max-width: 800px) {
 #postauth {
-    margin-top: -45px;
+    margin-top: -40px;
     color: #fff;
     font-size: 1.5em;
     display:block
@@ -520,10 +546,11 @@ body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -55px;
+    margin-top: -50px;
     color: #fff;
     font-size: 1.5em;
     display:block
+    font-family: 'Josefin Sans', sans-serif;
 }
 #postresult {
     -webkit-background-size: cover;
@@ -537,6 +564,8 @@ body {
     margin-bottom: 50px;
     size: relative;
     font-size: 1.2em;
+    font-family: 'Josefin Sans', sans-serif;
+
 }
 .reply textarea{
         font-size: 1.2em;
@@ -551,7 +580,8 @@ body {
         border-color: Transparent;
         overflow: auto;
         resize: none;
-        background:rgba(255,255,255,.05)
+        background:rgba(255,255,255,.05);
+        font-family: 'Josefin Sans', sans-serif;
 }
 #contentreply {
     font-size: 1.2em;
@@ -564,6 +594,7 @@ body {
         margin-top: 60px;
         margin-left: auto;
         margin-right: auto;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 /*---FOOTER---*/
@@ -578,6 +609,7 @@ body {
         box-shadow: inset 0px 3px 5px #fff;
         margin-top: 100px;
         height: 40px;
+        font-family: 'Josefin Sans', sans-serif;
 }
 div.ftext {
         text-align: center;
@@ -596,6 +628,8 @@ div.ftext {
         transition: background .35s ease-in-out;
         -moz-transition: background .35s ease-in-out;
         -webkit-transition: background .35s ease-in-out;
+        font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .popular:hover {

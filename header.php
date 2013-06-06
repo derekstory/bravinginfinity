@@ -7,14 +7,15 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/Style/table.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/Style/master.css" />
     <link rel="stylesheet" type="text/css" href="/Style/Menu.css">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <div class="wrapper">
+ <div class="wrapper">
 
-<div id="fixedhead2">
-<ul id="nav" class="drop">
-<form>
+  <div id="fixedhead2">
+   <ul id="nav" class="drop">
+   <form>
 
   <li style="background: rgba(0,0,0,0)">
    <span id="SrchBox">

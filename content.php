@@ -56,13 +56,12 @@ $result2 = mysql_query($sql2);
 
     echo '<div sytle="display: inline-block"';
     {
-    if (isset($_POST['post_supporters_x']))
+    if (isset($_POST['post_supporters_x']) && $_SESSION['signed_in'] == true)
          {
          $sqlsupport =  "UPDATE `post`,`users` SET post_supporters = post_supporters +1 WHERE post_id  = " . mysql_real_escape_string($_GET['id']). "";
          $supportresult = mysql_query($sqlsupport);
          }
     }
-
      echo '<a href="content.php?id=' . $row["post_id"] . '#community" title="Reply" ><img id="communitybutton" style="margin-left: 10px" src="/Style/images/reply.png"></a>';
 echo '<form method="post" onsubmit="onSave();return false;">
         <input type="image" name="post_supporters" title="Mark as Abuse or Spam" id="communitybutton" style="margin-left: 10px" src="/Style/images/support.png"/>
